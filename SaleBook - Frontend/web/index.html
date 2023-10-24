@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Administracion - SALEBOOK</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+    <body>
+       <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">SALEBOOK</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="#">Ver</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Crear</a>
+                  </li>
+                      <li class="nav-item">
+                    <a class="nav-link" href="#">Actualizar</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Borrar</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ISBN</th>
+              <th scope="col">Titulo</th>
+              <th scope="col">Autor</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Edicion</th>
+              <th scope="col">Editorial</th>
+              <th scope="col">Fecha Publicacion</th>
+              <th scope="col">Idioma</th>
+              <th scope="col">Valor Unitario</th>
+              <th scope="col">Stock</th>
+            </tr>
+          </thead>
+          <tbody class="tbody">
+
+          </tbody>
+        </table>
+
+        <div class="input-group w-25">
+          <button class="btn btn-outline-secondary btn-isbn" type="button" id="button-addon1">Buscar por ISBN</button>
+          <input type="text" class="form-control input-isbn" placeholder="Ingresa un ISBN" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        </div>
+        
+    </body>
+    
+    <script src="./ObtenerLibros.js"></script>
+</html>

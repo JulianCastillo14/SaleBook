@@ -36,8 +36,8 @@ public class LibroController {
         return libroServicio.getLibros();
     }
     
-    @GetMapping("/list/{id_libro}")
-    public Libro buscarId(@PathVariable("id_libro") String isbn){
+    @GetMapping("/list/{isbn}")
+    public Libro buscarId(@PathVariable("isbn") String isbn){
         return libroServicio.getLibro(isbn);
     }
     
@@ -63,10 +63,11 @@ public class LibroController {
         }else{
             return new ResponseEntity<>(obj,HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        libroServicio.grabarLibro(obj);
         return new ResponseEntity<>(obj,HttpStatus.OK);
     }
     
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{isbn}")
      public ResponseEntity<Libro> eliminar(@PathVariable String isbn){
         Libro obj = libroServicio.getLibro(isbn);
         if(obj != null){
@@ -77,3 +78,4 @@ public class LibroController {
         return new ResponseEntity<>(obj,HttpStatus.OK);
     }
 }
+    
