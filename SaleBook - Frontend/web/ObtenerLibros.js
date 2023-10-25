@@ -3,16 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Other/javascript.js to edit this template
  */
 
-async function Peticion(url, metodo, datos) {
-     const respuesta =  await fetch(url,{
-        method: metodo,
-        body: JSON.stringify(datos),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+export async function Peticion(url, metodo, datos) {
+    try {
+        const respuesta =  await fetch(url,{
+            method: metodo,
+            body: JSON.stringify(datos),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        return {respuesta: await respuesta.json(), status: await respuesta.ok}
+    } catch (error) {
+        return {respuesta: "Error en la comunicacion", status: false}
+    }
     
-    return {respuesta: await respuesta.json(), status: await respuesta.ok}
+   
 }
 
 async function obtenerLibros() {
@@ -38,7 +44,7 @@ async function obtenerLibros() {
         tbody.innerHTML = template
     }else{
         template = `<tr>
-                        <td colspan="10">No hay libros registrados</td>
+                        <td colspan="10">${libros}</td>
                     </tr>`
         tbody.innerHTML = template
     }
@@ -68,7 +74,7 @@ async function obtenerLibrosISBN(isbn) {
         tbody.innerHTML = template
     }else{
         template = `<tr>
-                        <td colspan="10">No hay libros registrados</td>
+                        <td colspan="10">${libro}</td>
                     </tr>`
         tbody.innerHTML = template
     }
