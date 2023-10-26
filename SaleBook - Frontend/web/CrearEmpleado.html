@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear empleado</title>
+    <link rel="stylesheet" href="./CrearEmpleado.css">
+</head>
+<body>
+    <section>
+        <form>
+            <div>
+                <input type="text" placeholder=" Primer nombre">
+                <input type="text" placeholder=" Segundo nombre">
+                <input type="text" placeholder=" Primer apellido">
+                <input type="text" placeholder=" Segundo apellido">
+            </div>
+            <div>
+                <input type="text" id="nombre" name="nombre" placeholder=" Documento">
+                <select id="Tipo-Documento">
+                    <option value="" disabled selected>Selecciona un tipo de documento</option>
+                    <option value="TI">Tarjeta de identidad</option>
+                    <option value="CC"">Cédula de ciudadanía </option>
+                    <option value="TI">Tarjeta de extranjería</option>
+                    <option value="CC"">Cédula de extranjería </option>
+                </select>
+                <div id="Fecha-Nacimiento">
+                    Fecha de Nacimiento:
+                    <input type="date">
+                </div>
+            </div>
+            <div>
+                <input type="tel" placeholder=" Teléfono">
+                <select id="genero" name="genero">
+                    <option value="" disabled selected>Selecciona una identidad de género</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                </select>
+                <input id="Correo" type="email" placeholder=" Correo electrónico">
+            </div>
+            <div>
+                <input type="tel" placeholder=" Usuario">
+                <input type="tel" placeholder=" Contraseña">
+                <button>Crear Empleado</button>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

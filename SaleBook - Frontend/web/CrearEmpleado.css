@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    margin: 0;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
+section{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+input{
+    border: none;
+    background-color: #F1EFEF;
+    margin: 10px 10px;
+    border-radius: 15px;
+    height: 30px;
+}
+select {
+    color: gray;
+    border: none;
+    background-color: #F1EFEF;
+    border-radius: 15px;
+    margin: 10px;
+    height: 30px;
+}
+#Fecha-Nacimiento{
+    display: inline-block;
+    padding-left: 8px;
+    background-color: #F1EFEF;
+    border-radius: 15px;
+    font-size: 13px;
+    width: 305px;
+    height: 30px;
+    color: #757575;
+    font-family: 'Roboto', sans-serif;
+}
+#Fecha-Nacimiento input{
+    margin: 0;
+}
+#Correo{
+    width: 285px;
+}
+button{
+    background-color: #186F65;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    height: 30px;
+}
+
+
