@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Administracion - SALEBOOK</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./assets/css/ConsultarLibros.css">
+    </head>
+    <body>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ISBN</th>
+              <th scope="col">Titulo</th>
+              <th scope="col">Autor</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Edicion</th>
+              <th scope="col">Editorial</th>
+              <th scope="col">Fecha Publicacion</th>
+              <th scope="col">Idioma</th>
+              <th scope="col">Valor Unitario</th>
+              <th scope="col">Stock</th>
+            </tr>
+          </thead>
+          <tbody class="tbody">
+
+          </tbody>
+        </table>
+
+        <form>
+          <button class="btn-isbn" type="button">Buscar por ISBN</button>
+          <input type="text" class="input-isbn" placeholder="Ingresa un ISBN">
+          <button class="btn-isbn-remove" type="button" >Borrar por ISBN</button>
+          <input type="text" class="input-isbn-remove" placeholder="Ingresa un ISBN">
+          <button class="btn-all" type="button" >Ver todo</button>
+        </form>
+    </body>
+    
+    <script src="./ObtenerLibros.js" type="module"></script>
+    <script src="./BorrarLibros.js" type="module"></script>
+
+</html>

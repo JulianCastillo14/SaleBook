@@ -1,25 +1,4 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/javascript.js to edit this template
- */
-
-export async function Peticion(url, metodo, datos) {
-    try {
-        const respuesta =  await fetch(url,{
-            method: metodo,
-            body: JSON.stringify(datos),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-
-        return {respuesta: await respuesta.json(), status: await respuesta.ok}
-    } catch (error) {
-        return {respuesta: "Error en la comunicacion", status: false}
-    }
-    
-   
-}
+import {Peticion} from "./Peticion.js"
 
 async function obtenerLibros() {
     const tbody = document.querySelector(".tbody")
@@ -89,4 +68,9 @@ btnISBN.addEventListener('click', () =>{
     obtenerLibrosISBN(ISBN)
 })
 
+const btnAll = document.querySelector(".btn-all")
+
+btnAll.addEventListener('click', obtenerLibros)
+
 document.addEventListener('DOMContentLoaded', obtenerLibros)
+

@@ -43,7 +43,11 @@ public class LibroController {
     
     @PostMapping("/")
     public ResponseEntity<Libro> agregar(@RequestBody Libro libro){
-        Libro obj = libroServicio.grabarLibro(libro);
+        Libro obj = libroServicio.getLibro(libro.getIsbn());
+        if(obj == null){
+            return new ResponseEntity<>(obj,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        obj = libroServicio.grabarLibro(obj);
         return new ResponseEntity<>(obj,HttpStatus.OK);
     }
     

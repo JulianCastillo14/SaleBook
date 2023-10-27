@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+*{
+    margin: 0;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+input{
+    border: none;
+    background-color: #F1EFEF;
+    margin: 10px 10px;
+    border-radius: 15px;
+    height: 30px;
+    padding: 0 10px;
+}
+
+button{
+    background-color: #186F65;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    height: 30px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #5d8374;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.7s;
+}
+
+form {
+    display: grid;
+    margin: 19px;
+    grid-template-columns: 0.12fr 0.15fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-all{
+    grid-column-start: 1 2;
+    grid-column-end: span 2;
+}
+
+table{
+    border-collapse: collapse;
+    margin: 10px auto;
+    width: 80%;
+
+}
+
+td,th{
+    border: 1px dashed #186F65;
+    padding: 5px;
+}
+
+th{
+    background-color: #196d67;
+    color: #F1EFEF;
+}
+
+td{
+    background-color: #F1EFEF;
+    text-align: center;
+}

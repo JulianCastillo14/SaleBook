@@ -1,21 +1,4 @@
-
-export async function Peticion(url, metodo, datos) {
-    try {
-        const respuesta =  await fetch(url,{
-            method: metodo,
-            body: JSON.stringify(datos),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-
-        return {respuesta: await respuesta.json(), status: await respuesta.ok}
-    } catch (error) {
-        return {respuesta: "Error en la comunicacion", status: false}
-    }
-    
-   
-}
+import {Peticion} from "./Peticion.js"
 
 
 document.querySelector(".btn-crear").addEventListener("click",  async (e) => {
