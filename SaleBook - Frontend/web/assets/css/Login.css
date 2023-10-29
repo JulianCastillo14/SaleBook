@@ -182,3 +182,25 @@ body{
     cursor: pointer;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1.2s;
 }
+
+.content-error{
+    display: none;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin: 12px auto;
+    width: 80%;
+    height: 2em;
+    align-items: center;
+    justify-content: center;
+    color: #e04646;
+    padding: 10px;
+    z-index: 1000;
+    position: absolute;
+    top: 449px;
+    left: 123px;
+}
+
+.content-error p{
+    text-align: center;
+} 

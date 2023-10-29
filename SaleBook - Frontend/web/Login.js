@@ -1,4 +1,5 @@
 import { Peticion } from "./Peticion.js";
+import { ValidarMensaje } from "./ValidarMensaje.js";
 
 document.querySelector(".login-btn").addEventListener("click", async (e) => {
     e.preventDefault()
@@ -12,17 +13,17 @@ document.querySelector(".login-btn").addEventListener("click", async (e) => {
 
     const { status, respuesta } = await Peticion("http://localhost:2020/login", "POST", data)
 
+    let ingreso = await respuesta.json()
+
     if (status) {   
-        if(respuesta == 1){
-            window.location.href = "./inicio.html"  
+        if(ingreso == 1){
+            window.location.href = "./ModuloLibros.html"  
         }else{
-            alert("Usuario o contraseña incorrectos")
+            ValidarMensaje("Usuario o contraseña incorrectos",  "red")
         }
     } else {
-        alert("Ocurrio un error al iniciar sesion")
+        ValidarMensaje("Ocurrio un error al conectar", "red")
     }
-    console.log(status)
-    console.log(respuesta)
 })  
 
 

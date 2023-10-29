@@ -86,9 +86,5 @@ public class EmpleadoController {
         int responseLogin = empleadoServicio.login(usuario);
         return responseLogin;
     }
-    
-    @PostMapping("/loginclient")
-    public ResponseEntity<?> loginCliente(@RequestBody Login usuario){
-        return empleadoServicio.ingresar(usuario);
-    }   
+   
 }

@@ -8,7 +8,7 @@ export async function Peticion(url, metodo, datos) {
             }
         })
 
-        return {respuesta: await respuesta.json(), status: await respuesta.ok}
+        return {respuesta: await respuesta, status: await respuesta.ok}
     } catch (error) {
         return {respuesta: "Error en la comunicacion", status: false}
     }

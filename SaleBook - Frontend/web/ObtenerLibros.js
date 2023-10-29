@@ -1,11 +1,17 @@
 import {Peticion} from "./Peticion.js"
+import {ValidarMensaje} from "./ValidarMensaje.js"
 
 async function obtenerLibros() {
     const tbody = document.querySelector(".tbody")
-    const {status, respuesta: libros } = await Peticion("http://localhost:2020/api/libros/list","GET")
+    const {status, respuesta } = await Peticion("http://localhost:2020/api/libros/list","GET")
     let template = ``
-
+    let libros = await respuesta.json()
     if(status){
+        if(libros.length == 0){
+            ValidarMensaje("No hay libros disponibles", "red")
+            return
+        }
+        
         libros.forEach(libro => {
             template += ` <tr>
                             <th scope="row">${libro.isbn}</th>
@@ -22,21 +28,21 @@ async function obtenerLibros() {
         });
         tbody.innerHTML = template
     }else{
-        template = `<tr>
-                        <td colspan="10">${libros}</td>
-                    </tr>`
-        tbody.innerHTML = template
+        ValidarMensaje("Ocurrio un error al conectar", "red")
     }
-    console.log(libros)
 }
 
 async function obtenerLibrosISBN(isbn) {
-    console.log(typeof(isbn))
-    const tbody = document.querySelector(".tbody")
-    const {status, respuesta: libro } = await Peticion(`http://localhost:2020/api/libros/list/${isbn}`,"GET")
+    if(isbn == null || isbn == "" || isbn == undefined){
+        ValidarMensaje("El campo ISBN es obligatorio", "red")
+        return
+    }
 
-    console.log(libro)
-    console.log(status)
+    const tbody = document.querySelector(".tbody")
+    const {status, respuesta} = await Peticion(`http://localhost:2020/api/libros/list/${isbn}`,"GET")
+
+    let libro = await respuesta.json()
+   
     if(status){
             let template = ` <tr>
                             <th scope="row">${libro.isbn}</th>
@@ -52,12 +58,8 @@ async function obtenerLibrosISBN(isbn) {
                         </tr>`
         tbody.innerHTML = template
     }else{
-        template = `<tr>
-                        <td colspan="10">${libro}</td>
-                    </tr>`
-        tbody.innerHTML = template
+        ValidarMensaje(libro.mensaje, "red")
     }
-    console.log(libro)
 }
 
 const btnISBN = document.querySelector(".btn-isbn")

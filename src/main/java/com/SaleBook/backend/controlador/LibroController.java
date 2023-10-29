@@ -37,24 +37,28 @@ public class LibroController {
     }
     
     @GetMapping("/list/{isbn}")
-    public Libro buscarId(@PathVariable("isbn") String isbn){
-        return libroServicio.getLibro(isbn);
+    public ResponseEntity<Libro> buscarId(@PathVariable("isbn") String isbn){
+        Libro obj = libroServicio.getLibro(isbn);
+        if(obj != null){
+            return new ResponseEntity<>(obj,HttpStatus.OK);
+        }
+        throw new RuntimeException("No se encontro un libro con ese ISBN");
     }
     
     @PostMapping("/")
     public ResponseEntity<Libro> agregar(@RequestBody Libro libro){
         Libro obj = libroServicio.getLibro(libro.getIsbn());
-        if(obj == null){
-            return new ResponseEntity<>(obj,HttpStatus.INTERNAL_SERVER_ERROR);
+        if(obj != null){
+            throw new RuntimeException("El libro ya existe");
         }
-        obj = libroServicio.grabarLibro(obj);
+        obj = libroServicio.grabarLibro(libro);
         return new ResponseEntity<>(obj,HttpStatus.OK);
     }
     
     @PutMapping("/")
     public ResponseEntity<Libro> editar(@RequestBody Libro libro){
         Libro obj = libroServicio.getLibro(libro.getIsbn());
-        if(obj != null){
+        if(obj != null){    
             obj.setTitulo(libro.getTitulo());
             obj.setAutor(libro.getAutor());
             obj.setEdicion(libro.getEdicion());
@@ -65,7 +69,7 @@ public class LibroController {
             obj.setValor_unitario(libro.getValor_unitario());
             obj.setStock(libro.getStock());
         }else{
-            return new ResponseEntity<>(obj,HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new RuntimeException("El libro no existe");
         }
         libroServicio.grabarLibro(obj);
         return new ResponseEntity<>(obj,HttpStatus.OK);
@@ -77,7 +81,7 @@ public class LibroController {
         if(obj != null){
            libroServicio.deleteLibro(isbn);
         }else{
-           return new ResponseEntity<>(obj,HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new RuntimeException("El libro no existe");
         }
         return new ResponseEntity<>(obj,HttpStatus.OK);
     }

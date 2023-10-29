@@ -14,7 +14,4 @@ public interface EmpleadoRepositorio extends JpaRepository<Empleado, Integer>{
     @Query("select count (*) from Empleado as p where p.usuario= :usuario and p.password=:contraseña")
     Integer findByUsuarioYContraseñaCount (@Param("usuario") String usuario,
             @Param("contraseña") String contraseña);
-    @Query("select p from Empleado as p where p.usuario= :usuario and p.password=:contraseña")
-    Empleado findByUsuarioYContraseña(@Param("usuario") String usuario, 
-            @Param("contraseña") String contraseña);
 }

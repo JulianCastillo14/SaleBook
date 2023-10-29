@@ -1,5 +1,5 @@
 import {Peticion} from "./Peticion.js"
-
+import { ValidarMensaje } from "./ValidarMensaje.js"
 
 document.querySelector(".btn-crear").addEventListener("click",  async (e) => {
     e.preventDefault()
@@ -27,14 +27,24 @@ document.querySelector(".btn-crear").addEventListener("click",  async (e) => {
         "stock": parseInt(stock)
     }   
 
-    const {status, respuesta: libros } = await Peticion("http://localhost:2020/api/libros/","POST",data)
-    
-    if(status){
-        alert("Libro creado correctamente")
-    }else{
-        alert("Ocurrio un error al crear el libro")
+  
+    for (const key in data) {
+        if(data[key] == null || data[key] == "" || data[key] == undefined){
+            ValidarMensaje("Todos los campos son obligatorios", "red")
+            return
+        }     
     }
-    console.log(status)
-    console.log(libros)
+
+
+    const {status, respuesta} = await Peticion("http://localhost:2020/api/libros/","POST",data)
+    
+    let mensaje = await respuesta.json()
+
+    if(status){ 
+        ValidarMensaje("Libro creado correctamente", "#2c8069")
+    }else{
+        ValidarMensaje(mensaje.mensaje, "red")
+    }
 })
+
 
