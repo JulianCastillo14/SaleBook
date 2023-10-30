@@ -2,8 +2,9 @@ import {Peticion} from "./Peticion.js"
 
 async function obtenerEmpleados() {
     const tbody = document.querySelector("#tbody")
-    const {status, respuesta: Empleados } = await Peticion("http://localhost:2020/api/Empleados/list","GET")
+    const {status, respuesta } = await Peticion("http://localhost:2020/api/Empleados/list","GET")
     let template = ``
+    let Empleados = await respuesta.json()
 
     if(status){
         Empleados.forEach(Empleado => {
@@ -31,8 +32,8 @@ async function obtenerEmpleados() {
 async function obtenerEmpleadosDocumento(numeroDocumento) {
     console.log(typeof(numeroDocumento))
     const tbody = document.querySelector("#tbody")
-    const {status, respuesta: Empleado } = await Peticion(`http://localhost:2020/api/Empleados/list/${numeroDocumento}`,"GET")
-    console.log(status)
+    const {status, respuesta} = await Peticion(`http://localhost:2020/api/Empleados/list/${numeroDocumento}`,"GET")
+    let Empleado = await respuesta.json()
     if(status){     
         let template = ` <tr>
                             <th scope="row">${Empleado.numeroDocumento}</th>
@@ -59,5 +60,9 @@ btnConsultar.addEventListener('click', () =>{
     const numeroDocumento = document.querySelector("#Documento").value
     obtenerEmpleadosDocumento(numeroDocumento)
 })
+
+const btnAll = document.querySelector("#btn-all")
+
+btnAll.addEventListener('click', obtenerEmpleados)
 
 document.addEventListener('DOMContentLoaded', obtenerEmpleados)
