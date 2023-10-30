@@ -7,11 +7,32 @@
     <link rel="stylesheet" href="./assets/css/ConsultarEmpleado.css">
 </head>
 <body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">N° Documento</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Nombre completo</th>
+                <th scope="col">Fecha de nacimiento</th>
+                <th scope="col">Género</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Contraseña</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
     <section>
         <form action="">
-            <input type="text" placeholder="Digita el número de documento de identidad">
-            <button>Consultar</button>
+            <input id="Documento" type="text" placeholder="Número de documento">
+            <button id="btn-consultar" type="button">Consultar</button><br>
+            <input id="Documento-eliminar"type="text" placeholder="Número de documento">
+            <button id="btn-eliminar"  type="button">Eliminar</button>
         </form>
     </section>
 </body>
+<script src="./ObtenerEmpleados.js" type="module"></script>
+<script src="./BorrarEmpleado.js" type="module"></script>
 </html>
