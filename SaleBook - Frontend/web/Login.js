@@ -11,13 +11,13 @@ document.querySelector(".login-btn").addEventListener("click", async (e) => {
         "contraseña": contraseña
     }
 
-    const { status, respuesta } = await Peticion("http://localhost:2020/login", "POST", data)
+    const { status, respuesta } = await Peticion("http://localhost:2020/api/Empleados/login", "POST", data)
 
     let ingreso = await respuesta.json()
 
     if (status) {   
         if(ingreso == 1){
-            window.location.href = "./ModuloLibros.html"  
+            window.location.href = "./Administracion.html"  
         }else{
             ValidarMensaje("Usuario o contraseña incorrectos",  "red")
         }
