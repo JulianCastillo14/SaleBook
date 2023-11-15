@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+*{
+    margin: 0;
+}
+#container-empleado{
+    font-family: 'Roboto', sans-serif;
+}
+#container-empleado > nav{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    height: 7vh;
+}
+#container-empleado > nav > a {
+    text-decoration: none;
+    color: white;
+    margin: auto 20px;
+    background-color: #186F65;
+    border-radius: 30px;
+    padding: 10px 5px 10px 5px;
+    width: 100px;
+    text-align: center;
+}
+#container-empleado > iframe{
+    width: 100vw;
+    height: 85vh;
+}
