@@ -12,9 +12,9 @@ document.querySelector(".login-btn").addEventListener("click", async (e) => {
     }
 
     const { status, respuesta } = await Peticion("http://localhost:2020/api/Empleados/login", "POST", data)
-
+    console.log(respuesta)
     let ingreso = await respuesta.json()
-
+   
     if (status) {   
         if(ingreso == 1){
             window.location.href = "./Administracion.html"  

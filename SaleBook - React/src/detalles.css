@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    font-family: Roboto;
+}
+
+.detalles{
+    display: flex;
+    width: 80vw;
+    height: 80vh;
+    margin: 2em auto;
+}
+
+.detalles-info{
+    width: 26%;
+    box-shadow: 0 0 5px #196d6791;
+    overflow: hidden;
+    margin: 0 1em;
+}
+
+
+.detalles-info-img{
+    display: block;
+    margin: 0 auto;
+    width: 75%;
+    height: 32vh;
+}
+
+.detalles-info-texto{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5em;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1em;
+}
+
+.detalles-info-texto::after{
+    margin: 1em;
+    content: " ";   
+    position: relative;
+    width: 7em;
+    height: 9em;
+    background-color: #196d67;
+    top: 1em;
+    left: 43%;
+    box-shadow: -3px -2px 5px #196d6791;
+}
+
+.detalles-valor-compra{
+    display: flex;
+    margin: 5em 0;
+}
+
+.detalles-valor-titulo{
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.detalles-valor-precio {
+    margin: 0 5em 0 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 2em;
+}
+
+.detalles-valor-cantidad{
+    border: 1px solid;
+    font-weight: 600;
+    margin: 0 1em 0 0;
+}
+
+.detalles-valor-comprar{
+    padding: 1em;
+    background-color: rgb(231, 215, 64);
+    font-weight: 600;
+}
