@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import { useEffect } from "react"
 import { CarritoContext} from "../context/carrito"
 import {Link} from "react-router-dom"
-import "../catalogo.css"
+import "../styles/catalogo.css"
 
 export function Catalogo(){
     const [libros, SetLibros] = useState()

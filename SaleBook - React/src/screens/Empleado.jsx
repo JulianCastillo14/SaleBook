@@ -1,14 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../styles/empleado.css'
 
 const Empleado = () => {
+  const [activeComponent, setActiveComponent] = useState(null);
+  
+  const handleClick = (component) => {
+    setActiveComponent(component);
+  }
   return (
     <div id='container-empleado'>
-        <iframe src="./ConsultarEmpleado.html" name="iframe_2" frameborder="0"></iframe>
-        <nav className="navbar">
-        <a href="./CrearEmpleado.html" target="iframe_2">Crear</a>
-        <a href="./ConsultarEmpleado.html" target="iframe_2">Consultar</a>
-        <a href="./EditarEmpleado.html" target="iframe_2">Actualizar</a>
+      <section>
+
+      </section>
+        <nav className="navbar-empleado">
+        <a href="#">Crear</a>
+        <a href="#">Consultar</a>
+        <a href="#">Actualizar</a>
         </nav>
     </div>
   )

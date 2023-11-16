@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from 'react-router-dom'
-import "../detalles.css"
+import "../styles/detalles.css"
 import { useContext } from "react";
 import { CarritoContext } from "../context/carrito";
 import {Link} from "react-router-dom"

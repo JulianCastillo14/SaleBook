@@ -1,17 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 *{
     margin: 0;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
-
 .container-administracion{
-    font-family: 'Roboto', sans-serif;
     background-image: url(../assets/Fondo-Salebook.jpg);
-    background-size: cover;
     background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    height: 100vh;
+    width: 100vw;
     z-index: -100000;
 }
-
+.content{
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .content > header{
     display: flex;
     flex-direction: column;
@@ -23,15 +30,13 @@
     background-color: #186F65;
     margin: auto;
 }
-
 .content > header > h1 {
     padding: 11px;
     margin: 11px 0 0 0;
     font-size: 18px;
     text-transform: uppercase;
 }
-
-.navbar{
+.navbar-administacion{
     background-color: white;
     height: 100%;
     width: 100%;
@@ -40,8 +45,7 @@
     border-right-width: 0;
     border-top-width: 0;
 }
-
-.navbar > a {
+.navbar-administacion > a {
     text-decoration: none;
     color: #186F65;
     font-weight: 600;
@@ -52,20 +56,17 @@
     padding: 0 10px 0 10px;
     margin: 0 -4px 0 0;
 }
-
-.content > iframe {
+.content > section {
     width: 100%;
     height: 85vh;
     margin: 20px auto;
     text-align: center;
+    justify-content:center ;
     display: flex;
     background-color: white;
 }
 
-.content{
-    position: absolute;
-    width: 70%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
+
+
+
