@@ -4,19 +4,20 @@
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
-.container-crearempleado{
+#container-ediEmpleado{
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    overflow: auto;
 }
-.input-ce{
+.input-ede{
     border: none;
     background-color: #F1EFEF;
     margin: 10px 10px;
     border-radius: 15px;
     height: 30px;
 }
-.select-ce {
+.select-ede {
     color: gray;
     border: none;
     background-color: #F1EFEF;
@@ -35,13 +36,13 @@
     color: #757575;
     font-family: 'Roboto', sans-serif;
 }
-#Fecha-Nacimiento > input{
+#Fecha-Nacimiento input{
     margin: 0;
 }
 #Correo{
     width: 285px;
 }
-.container-crearempleado > form > div > button{
+.btn-editar{
     background-color: #186F65;
     color: white;
     border: none;
@@ -49,9 +50,7 @@
     height: 30px;
     cursor: pointer;
 }
-.ajustar-div{
+.ajustar-div-ede{
     display: flex;
     align-items: center;
 }
-
-

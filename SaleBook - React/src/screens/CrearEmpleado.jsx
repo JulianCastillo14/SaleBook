@@ -13,7 +13,7 @@ const CrearEmpleado = () => {
             </div>
             <div>
                 <input className='input-ce' type="text" id="Documento" name="nombre" placeholder=" Documento"/>
-                <select id="Tipo-Documento">
+                <select className='select-ce' id="Tipo-Documento">
                     <option value="" disabled selected>Selecciona un tipo de documento</option>
                     <option value="TI">Tarjeta de identidad</option>
                     <option value="CC">Cédula de ciudadanía </option>
@@ -25,15 +25,15 @@ const CrearEmpleado = () => {
                     <input className='input-ce' id="Fecha-nacimiento" type="date"/>
                 </div>
             </div>
-            <div>
-                <select id="Genero" name="genero">
+            <div className='ajustar-div'>
+                <select className='select-ce' id="Genero" name="genero">
                     <option value="" disabled selected>Selecciona una identidad de género</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
                 </select>
                 <input className='input-ce' id="Correo" type="email" placeholder=" Correo electrónico"/>
             </div>
-            <div>
+            <div className='ajustar-div'>
                 <input className='input-ce' id="Usuario" type="text" placeholder=" Usuario"/>
                 <input className='input-ce' id="Password" type="text" placeholder=" Contraseña"/>
                 <button class="btn-crear">Crear Empleado</button>

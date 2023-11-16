@@ -20,7 +20,6 @@ const Administracion = ( ) => {
           </header>
           <section>
             {activeComponent === 'Empleado' && <Empleado />}
-            
           </section>
       </div>
     </div>
