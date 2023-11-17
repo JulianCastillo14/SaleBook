@@ -55,3 +55,5 @@ export function LoginAdministracion(){
         </>
     )
 }
+
+export default LoginAdministracion;

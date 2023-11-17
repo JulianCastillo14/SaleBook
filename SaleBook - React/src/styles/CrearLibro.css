@@ -3,15 +3,10 @@
 
 *{
     margin: 0;
-}
-
-body{
     font-family: 'Roboto', sans-serif;
-    background-color: #fffafa;
 }
 
-
-input, select{
+.input-cl, .select-cl{
     border: none;
     background-color: #F1EFEF;
     margin: 10px 10px;
@@ -20,8 +15,7 @@ input, select{
     padding: 0 12px;
 }
 
-
-button{
+.button-cl{
     background-color: #186F65;
     color: white;
     border: none;
@@ -30,8 +24,7 @@ button{
     cursor: pointer;
 }
 
-
-form{
+.formLibro{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -39,17 +32,12 @@ form{
     justify-items: center;
     margin-top: 30px;
 }
-
-
-
 .btn-crear, .btn-editar{
     grid-column-start: 1;
     grid-column-end: span 2;
     font-size: 14px;
     padding: 0 2em;
 }
-
-
 .content-error{
     display: none;
     font-size: 22px;
@@ -63,7 +51,6 @@ form{
     color: #e04646;
     padding: 10px;
 }
-
 .content-error p{
     text-align: center;
 } 

@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import '../styles/empleado.css'
-import CrearEmpleado from './CrearEmpleado';
-import ConsultarEmpleado from './ConsultarEmpleado';
-import EditarEmpleado from './EditarEmpleado';
+import CrearEmpleado from '../componentes/CrearEmpleado';
+import ConsultarEmpleado from '../componentes/ConsultarEmpleado';
+import EditarEmpleado from '../componentes/EditarEmpleado';
 
 const Empleado = () => {
   const [activeComponent, setActiveComponent] = useState("Crear");

@@ -40,8 +40,8 @@ export function TablaListaLibros(){
     },[eliminar])
 
     return(
-        <>
-         <table className="table">
+        <div>
+         <table className="table-csl">
           <thead>
             <tr>
               <th scope="col">ISBN</th>
@@ -91,12 +91,12 @@ export function TablaListaLibros(){
         </table>
 
         <form className="control_libros">
-          <button className="btn-isbn" onClick={()=>{setTodosLibros(false)}} type="button">Buscar por ISBN</button>
-          <input ref={input_isbn} type="text" className="input-isbn" placeholder="Ingresa un ISBN"/>
-          <button className="btn-isbn-remove" onClick={()=>{setEliminar(!eliminar)}} type="button" >Borrar por ISBN</button>
-          <input ref={input_delete} type="text" className="input-isbn-remove" placeholder="Ingresa un ISBN"/>
-          <button className="btn-all" type="button" onClick={()=>{setTodosLibros(true)}} >Ver todo</button>
+          <button className="btn-isbn button-csl" onClick={()=>{setTodosLibros(false)}} type="button">Buscar por ISBN</button>
+          <input ref={input_isbn} type="text" className="input-isbn input-csl" placeholder="Ingresa un ISBN"/>
+          <button className="btn-isbn-remove button-csl" onClick={()=>{setEliminar(!eliminar)}} type="button" >Borrar por ISBN</button>
+          <input ref={input_delete} type="text" className="input-isbn-remove input-csl" placeholder="Ingresa un ISBN"/>
+          <button className="btn-all button-csl" type="button" onClick={()=>{setTodosLibros(true)}} >Ver todo</button>
         </form>
-        </>
+        </div>
     )
 }

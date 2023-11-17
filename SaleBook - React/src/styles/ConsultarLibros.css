@@ -2,13 +2,9 @@
 
 *{
     margin: 0;
-}
-body{
     font-family: 'Roboto', sans-serif;
-    
 }
-
-input{
+.input-csl{
     border: none;
     background-color: #F1EFEF;
     margin: 10px 10px;
@@ -16,8 +12,7 @@ input{
     height: 30px;
     padding: 0 10px;
 }
-
-button{
+.button-csl{
     background-color: #186F65;
     color: white;
     border: none;
@@ -26,12 +21,12 @@ button{
     cursor: pointer;
 }
 
-button:hover{
+.button-csl:hover{
     background-color: #5d8374;
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.7s;
 }
 
-form {
+.control_libros {
     display: grid;
     margin: 19px;
     grid-template-columns: 0.12fr 0.15fr;
@@ -45,7 +40,7 @@ form {
     grid-column-end: span 2;
 }
 
-table{
+.table-csl{
     border-collapse: collapse;
     margin: 10px auto;
     width: 80%;

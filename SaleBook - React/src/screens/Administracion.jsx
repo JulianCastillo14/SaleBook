@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import '../styles/administracion.css'
-import Empleado from './Empleado'
+import Empleado from './ModuloEmpleado'
 import { MooduloLibros } from './ModuloLibros';
 
 const Administracion = ( ) => {
