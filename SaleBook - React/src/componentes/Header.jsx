@@ -11,11 +11,11 @@ export function Header(){
                 <input className="header-buscador-boton" type="button" value="Buscar"></input>
             </form>
             <div className="header-carrito">
-                <img className="header-carrito-logo" src="../assets/cart-shopping-solid.svg" />
+                <img className="header-carrito-logo" src="../../public/cart-shopping-solid.svg" />
                 <Link to="/carrito"><button className="header-carrito-boton">Carrito</button></Link>
             </div>
             <div className="header-login">
-                <img className="header-login-logo" src="../assets/user-solid.svg" />
+                <img className="header-login-logo" src="../../public/user-solid.svg" />
                 <button className="header-login-boton">Login</button>
             </div>
         </header>
