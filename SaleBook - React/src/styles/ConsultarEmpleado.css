@@ -36,15 +36,15 @@
     width: 80%;
 
 }
-.table-cse > td,th{
+ td,th{
     border: 1px solid #186F65;
     padding: 5px;
 }
-.th-cse{
+th{
     background-color: #196d67;
     color: #F1EFEF;
 }
-.table-cse > td{
+td{
     background-color: #F1EFEF;
     text-align: center;
 }

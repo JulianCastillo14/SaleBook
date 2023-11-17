@@ -1,17 +1,55 @@
-import React from 'react'
-import '../styles/EditarEmpleado.css'
+import React, { useState, useEffect } from 'react';
+import '../styles/EditarEmpleado.css';
+import { Peticion } from '../js/Peticion';
+
 const EditarEmpleado = () => {
-  return (
+  const [primerNombre, setPrimerNombre] = useState('');
+  const [segundoNombre, setSegundoNombre] = useState('');
+  const [primerApellido, setPrimerApellido] = useState('');
+  const [segundoApellido, setSegundoApellido] = useState('');
+  const [numeroDocumento, setNumeroDocumento] = useState('');
+  const [tipoDocumento, setTipoDocumento] = useState('');
+  const [fechaNacimiento, setFechaNacimiento] = useState('');
+  const [genero, setGenero] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [usuario, setUsuario] = useState('');
+  const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    const obtenerEmpleado = async () => {
+      if (numeroDocumento) {
+        const { status, respuesta } = await Peticion(`http://localhost:2020/api/Empleados/${numeroDocumento}`, "GET");
+        if (status) {
+          const empleado = await respuesta.json();
+          setPrimerNombre(empleado.primerNombre);
+          setSegundoNombre(empleado.segundoNombre);
+          setPrimerApellido(empleado.primerApellido);
+          setSegundoApellido(empleado.segundoApellido);
+          setNumeroDocumento(empleado.numeroDocumento);
+          setTipoDocumento(empleado.tipoDocumento);
+          setFechaNacimiento(empleado.fechaNacimiento);
+          setGenero(empleado.genero);
+          setCorreo(empleado.correo);
+          setUsuario(empleado.usuario);
+          setPassword(empleado.password);
+        }
+      }
+    };
+
+    obtenerEmpleado();
+  }, [numeroDocumento]);
+
+return (
     <div id='container-ediEmpleado'>
         <form>
             <div>
+                <input className='input-ede' type="text" id="Documento" name="nombre" placeholder=" Documento"/>
                 <input className='input-ede' id="Primer-nombre" type="text" placeholder=" Primer nombre"/>
                 <input className='input-ede' id="Segundo-nombre" type="text" placeholder=" Segundo nombre"/>
                 <input className='input-ede' id="Primer-apellido" type="text" placeholder=" Primer apellido"/>
-                <input className='input-ede' id="Segundo-apellido" type="text" placeholder=" Segundo apellido"/>
             </div>
             <div>
-                <input className='input-ede' type="text" id="Documento" name="nombre" placeholder=" Documento"/>
+                <input className='input-ede' id="Segundo-apellido" type="text" placeholder=" Segundo apellido"/>
                 <select className='select-ede' id="Tipo-Documento">
                     <option value="" disabled selected>Selecciona un tipo de documento</option>
                     <option value="TI">Tarjeta de identidad</option>

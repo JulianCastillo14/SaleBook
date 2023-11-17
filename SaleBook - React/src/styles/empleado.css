@@ -4,7 +4,6 @@
 }
 #container-empleado{
     font-family: 'Roboto', sans-serif;
-    overflow: auto;
     width: 100%;
 }
 #container-empleado > nav{
@@ -27,4 +26,6 @@
 #container-empleado > section{
     width: 100%;
     height: 70vh;
+    overflow: auto;
+    margin-bottom: 40px;
 }
