@@ -5,7 +5,7 @@ import ConsultarEmpleado from './ConsultarEmpleado';
 import EditarEmpleado from './EditarEmpleado';
 
 const Empleado = () => {
-  const [activeComponent, setActiveComponent] = useState(null);
+  const [activeComponent, setActiveComponent] = useState("Crear");
   
   const handleClick = (component) => {
     setActiveComponent(component);

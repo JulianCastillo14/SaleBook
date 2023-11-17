@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import '../styles/administracion.css'
 import Empleado from './Empleado'
+import { MooduloLibros } from './ModuloLibros';
 
 const Administracion = ( ) => {
-  const [activeComponent, setActiveComponent] = useState(null);
+  const [activeComponent, setActiveComponent] = useState("Inventario");
   
   const handleClick = (component) => {
     setActiveComponent(component);
@@ -19,7 +20,7 @@ const Administracion = ( ) => {
               </nav>
           </header>
           <section>
-            {activeComponent === 'Empleado' && <Empleado />}
+            {activeComponent === 'Empleado' ? <Empleado /> : <MooduloLibros/>}
           </section>
       </div>
     </div>

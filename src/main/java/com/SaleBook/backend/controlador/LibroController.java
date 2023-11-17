@@ -6,6 +6,7 @@ package com.SaleBook.backend.controlador;
 
 import com.SaleBook.backend.modelo.Libro;
 import com.SaleBook.backend.servicio.LibroServicio;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -84,6 +85,16 @@ public class LibroController {
             throw new RuntimeException("El libro no existe");
         }
         return new ResponseEntity<>(obj,HttpStatus.OK);
+    }
+     
+      @GetMapping("/listIsbn")
+    public List<String> consultarTodosIsbn(){
+        List<Libro> libros  = libroServicio.getLibros();
+        List<String> Isbns = new ArrayList<>();
+        for(int i = 0; i<libros.size(); i++){
+            Isbns.add(libros.get(i).getIsbn());
+        }
+        return Isbns;
     }
 }
     
