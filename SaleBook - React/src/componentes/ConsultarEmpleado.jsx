@@ -5,6 +5,7 @@ import { Peticion } from '../js/Peticion';
 const ConsultarEmpleado = () => {
   const [empleados, setEmpleados] = useState([]);
   const [documento, setDocumento] = useState('');
+  const [documentoEliminar, setDocumentoEliminar] = useState('');
 
   const obtenerEmpleados = async () => {
     const { status, respuesta } = await Peticion("http://localhost:2020/api/Empleados/list","GET");
@@ -19,6 +20,16 @@ const ConsultarEmpleado = () => {
     if (status) {
       const Empleado = await respuesta.json();
       setEmpleados([Empleado]);
+    }
+  };
+
+  const eliminarEmpleadoDocumento = async (numeroDocumento) => {
+    const { status, respuesta } = await Peticion(`http://localhost:2020/api/Empleados/${numeroDocumento}`,"DELETE");
+    if (status) {
+      alert("Empleado eliminado correctamente");
+      obtenerEmpleados();
+    } else {
+      alert("Ocurrio un error al eliminar el empleado");
     }
   };
 
@@ -60,8 +71,8 @@ const ConsultarEmpleado = () => {
           <form action="">
             <input className='input-cse' id="Documento" type="text" placeholder="Número de documento" value={documento} onChange={(e) => setDocumento(e.target.value)} />
             <button className='btn-cse' id="btn-consultar" type="button" onClick={() => obtenerEmpleadosDocumento(documento)}>Consultar</button><br/>
-            <input className='input-cse' id="Documento-eliminar" type="text" placeholder="Número de documento"/>
-            <button className='btn-cse' id="btn-eliminar"  type="button">Eliminar</button><br/>
+            <input className='input-cse' id="Documento-eliminar" type="text" placeholder="Número de documento" value={documentoEliminar} onChange={(e) => setDocumentoEliminar(e.target.value)} />
+            <button className='btn-cse' id="btn-eliminar"  type="button" onClick={() => eliminarEmpleadoDocumento(documentoEliminar)}>Eliminar</button><br/>
             <button className='btn-cse' id="btn-all" type="button" onClick={obtenerEmpleados}>Ver todo</button>
           </form>
         </section>
