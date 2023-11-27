@@ -80,8 +80,9 @@
 
 .header-carrito{
     display: flex;
-    height: 50%;
+    height: 62%;
     width: 6%;
+    align-items: center;
 }
 
 .header-carrito-logo{

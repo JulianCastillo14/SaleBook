@@ -19,6 +19,7 @@ export function Detalles(){
 
     function comprar(e){
         let precio = e.target.parentElement.parentElement.children[0].textContent
+        let cantidad = e.target.parentElement.parentElement.children[1].value
         let titulo = e.target.parentElement.parentElement.parentElement.children[0].textContent
         let stock = e.target.parentElement.parentElement.parentElement.children[2].textContent
         let autor = e.target.parentElement.parentElement.parentElement.parentElement.children[0].children[1].children[1].textContent
@@ -31,6 +32,7 @@ export function Detalles(){
             editorial: editorial,
             categoria: categoria,
             stock: stock,
+            cantidad: String(cantidad),
             valor_unitario: precio
         }
 

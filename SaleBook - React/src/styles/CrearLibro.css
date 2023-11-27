@@ -54,3 +54,13 @@
 .content-error p{
     text-align: center;
 } 
+
+.error{
+    width: 60%;
+    height: auto;
+    color: #186F65;
+    font-size: 20px;
+    font-family: 'Roboto';
+    text-transform: uppercase;
+    margin: 0 auto;
+}

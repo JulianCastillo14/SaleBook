@@ -8,15 +8,19 @@ export function FormEditarLibro(){
     const [isbn, setIsbn] = useState("")
     const [libro, setLibro] = useState({})
     const [primerRender, setPrimerRender] = useState(false)
-
+    const [error, setEror] = useState()
 
     useEffect(()=>{
-        fetch("http://localhost:2020/api/libros/listIsbn")
-        .then(res=>res.json())
-        .then(res=>{
-            setListaIsbns(res)
-            setIsbn(res[0])
-        })
+            fetch("http://localhost:2020/api/libros/listIsbn")
+            .then(res=>res.json())
+            .then(res=>{
+                setListaIsbns(res)
+                setIsbn(res[0])
+                setEror(false)
+            })
+            .catch(error=>{
+                setEror(true)
+            })  
     },[])
 
     useEffect(()=>{
@@ -46,12 +50,13 @@ export function FormEditarLibro(){
     }
 
     return(
-        <form className="formLibro" ref={FormLibro} onSubmit={enviarData}>
+        <>
+        <form className="formLibro" ref={FormLibro} onSubmit={enviarData}>    
             {listaIsbns && 
                 <>
                     <div>
                         <label htmlFor="isbn">ISBN</label>
-                        <select  type="text"  name="isbn" onChange={(e)=>(setIsbn(e.target.value))}className="select-cl input-isbn" id="isbn">
+                        <select  type="text"  name="isbn" onChange={(e)=>(setIsbn(e.target.value))} className="select-cl input-isbn" id="isbn">
                             {listaIsbns.map(isbn=>(
                                     <option value={isbn} key={isbn} name="isbn">{isbn}</option>
                                 ))
@@ -98,5 +103,9 @@ export function FormEditarLibro(){
                 </>
             }
         </form>
+        {
+            error && <div className="error">No hay conexion con Base de Datos</div>
+        }
+        </>
     )
 }
