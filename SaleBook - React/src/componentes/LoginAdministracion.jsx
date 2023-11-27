@@ -35,18 +35,18 @@ export function LoginAdministracion(){
     return(
         <>
         <article className="content-login">
-            <img src="../../public/Fondo-login.png" />
+            <img src="/Fondo-login.png" />
             <section className="login">
                 <h2 className="login-titulo">Bienvenidos a SaleBook</h2>
                 <form  ref={FormLogin} onSubmit={enviarData} className="login-form">
                     <div className="login-usuario">
-                        <img className="login-logos" src="../../public/usuario.png"/>    
+                        <img className="login-logos" src="/usuario.png"/>    
                         <input htmlFor="usuario" name="usuario" className="input-usuario" type="text" placeholder="Usuario"/>
                     </div>
                     <div  className="login-contraseña">
-                        <img className="login-logos" src="../../public/bloquear.png"/>
+                        <img className="login-logos" src="/bloquear.png"/>
                         <input htmlFor="contraseña" name="contraseña" className="input-contraseña" type={bloqueado ? "password" : "text"} placeholder="Contraseña"/>
-                        <img className="login-logos login-invisible" onClick={()=>setBloqueado(!bloqueado)} src={bloqueado ? "../../public/ojo.png" : "../../public/invisible.png"}/>
+                        <img className="login-logos login-invisible" onClick={()=>setBloqueado(!bloqueado)} src={bloqueado ? "/ojo.png" : "/invisible.png"}/>
                     </div>
                     <input type="submit" className="login-btn" value="Iniciar Sesion"/>
                 </form>
