@@ -25,15 +25,33 @@ export function Detalles(){
         let autor = e.target.parentElement.parentElement.parentElement.parentElement.children[0].children[1].children[1].textContent
         let editorial = e.target.parentElement.parentElement.parentElement.parentElement.children[0].children[1].children[3].textContent
         let categoria = e.target.parentElement.parentElement.parentElement.parentElement.children[0].children[1].children[5].textContent
-        
+        let isbn = e.target.id
+
+        stock = stock.split(" ")[1]
+        precio = precio.split(" ")[1]
+
+        if(carrito.some((libro) => libro.isbn == e.target.id)){
+            let carritoActualizado = carrito.map(libro=>{
+                if(libro.isbn == e.target.id){
+                    libro.cantidad =  cantidad
+                }     
+                return libro
+            })
+            
+            setCarrito([...carritoActualizado])
+            return
+        }
+
+
         const nuevoitem = {
             titulo: titulo,
             autor: autor,
             editorial: editorial,
             categoria: categoria,
-            stock: stock,
-            cantidad: String(cantidad),
-            valor_unitario: precio
+            stock: parseInt(stock),
+            cantidad: parseInt(cantidad),
+            valor_unitario: parseInt(precio),
+            isbn: isbn
         }
 
         setCarrito([...carrito, nuevoitem])
@@ -72,7 +90,7 @@ export function Detalles(){
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                 </select>
-                                <Link to="/carrito"><button className="detalles-valor-comprar" onClick={(e)=>comprar(e)}>Comprar</button></Link>
+                                <Link to="/carrito"><button className="detalles-valor-comprar" id={detalles.isbn} onClick={(e)=>comprar(e)}>Comprar</button></Link>
                             </div>           
                         </div>
                     </section>

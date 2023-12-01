@@ -6,8 +6,11 @@ package com.SaleBook.backend.modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -29,6 +32,9 @@ public class Libro {
     private String idioma;
     private float valor_unitario;
     private int stock;
+    
+    @OneToMany(mappedBy = "isbn")
+    private List<Libro_Por_Factura> libroFacturaIdFactura;
 
     public Libro(){
         

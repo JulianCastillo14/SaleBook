@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { useEffect } from "react"
 import { CarritoContext} from "../context/carrito"
 import { CatalogoContext } from "../context/catalogo"
@@ -18,6 +18,19 @@ export function Catalogo(){
     },[])
 
     function agregarCarrito(e){
+
+        if(carrito.some((libro) => libro.isbn == e.target.id)){
+            let carritoActualizado = carrito.map(libro=>{
+                if(libro.isbn == e.target.id){
+                    libro.cantidad =  parseInt(libro.cantidad) + 1
+                }     
+                return libro
+            })
+            
+            setCarrito([...carritoActualizado])
+            return
+        }
+
         const values = []
         Array.from(e.target.parentElement.parentElement.children[1].children).forEach(element=>{
             values.push(element.textContent)
@@ -34,16 +47,13 @@ export function Catalogo(){
             categoria: values[3],
             stock: values[4],
             valor_unitario: values[5],
-            isbn: values[6]
+            isbn: values[6],
+            cantidad: 1
         }
 
-        setCarrito([...carrito, nuevoitem])
+                setCarrito([...carrito, nuevoitem])
     }
 
-    useEffect(()=>{
-        console.log(catalogo)
-    },[catalogo])
-  
 
     return( 
         <section className="catalogo">

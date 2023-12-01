@@ -17,7 +17,7 @@ export function App() {
       <Header></Header>
       <Filtro></Filtro>
       <Routes>
-          {/* <Route path="/" element={<Catalogo/>} />  */}
+          <Route path="/" element={<Catalogo/>} /> 
           <Route path="/detalles/:isbn" element={<Detalles/>} />
           <Route path="/carrito" element={<Carrito/>} />
           <Route path="/Administracion" element={<Administracion/>}/>
