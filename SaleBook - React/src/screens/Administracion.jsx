@@ -19,7 +19,7 @@ const Administracion = ( ) => {
                   <a onClick={() => handleClick('Empleado')}>Empleados</a>
               </nav>
           </header>
-          <section>
+          <section className='modulo-a'>
             {activeComponent === 'Empleado' ? <Empleado /> : <MooduloLibros/>}
           </section>
       </div>
