@@ -10,6 +10,7 @@ export function Carrito(){
     const [descuento] = useState(0)
     const [modal, setModal] = useState(false)
     const [tuCompra, setTuCompra] = useState(false)
+    const [procesando, setProcesando] = useState(3)
 
     function eliminar(e){
         setCarrito([...carrito.filter(libro => libro.isbn != e.target.id)])
@@ -67,6 +68,7 @@ export function Carrito(){
         .then(res=>res.json())
         .then(res=>{
             setTuCompra(res)
+            setProcesando(0)
         })
         .catch(error=>console.log(error))
     }
@@ -74,7 +76,7 @@ export function Carrito(){
     function usuarioPeticion(e){
         e.preventDefault()
         
-
+        setProcesando(1)
         fetch(`http://localhost:2020/api/clientes/list/correo/${sesion.perfil}`)
         .then(res=>res.json())
         .then(res=>{
@@ -93,6 +95,7 @@ export function Carrito(){
         setTuCompra(false)
         setCarrito([])
         setModal(false)
+        setProcesando(3)
     }
 
     return(
@@ -135,7 +138,14 @@ export function Carrito(){
                 </div>
             }
             {
-                tuCompra && 
+
+                procesando == 1 ? 
+                <div>
+                    <img src="../../public/Spinner-1s-200px.svg"/>
+                    <p>Estamos Procesando Tu Compra.....</p>
+                </div>
+
+                : procesando == 0 ? 
                 <div>
                     <h2>Felicitaciones Tu Compra Ha sido Exitosa</h2>
                      <ul>
@@ -162,6 +172,8 @@ export function Carrito(){
                     </ul>
                     <button onClick={limpiar}>Cerrar</button>
                 </div>
+                :
+                <></>
             }
         </form>
     )
