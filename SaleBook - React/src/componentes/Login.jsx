@@ -1,11 +1,13 @@
 import { useContext, useEffect, useRef, useState } from "react"
 import "../styles/LoginCliente.css"
 import { SesionContext } from "../context/sesion"
+import { useNavigate } from "react-router-dom"
 
 export function Login(){
     const {sesion, setSesion} = useContext(SesionContext)
     const [bloqueado, setBloqueado] = useState(true)
     const FormLogin = useRef(null)
+    const navigate = useNavigate()
 
     function enviarData(e) {
         e.preventDefault();
@@ -31,7 +33,7 @@ export function Login(){
         if(sesion != null){
             if(sesion.login == 1){
                 localStorage.setItem("sesion", JSON.stringify(sesion))
-                window.location.href = "./"
+                navigate("../")
             }
         }
            

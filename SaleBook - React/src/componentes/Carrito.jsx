@@ -2,14 +2,17 @@ import { useContext, useEffect, useState } from "react"
 import { CarritoContext } from "../context/carrito"
 import "../styles/Carrito.css"
 import { SesionContext } from "../context/sesion"
+import { useNavigate } from "react-router-dom"
 
 export function Carrito(){
+    
+    const navigate = useNavigate()
     const {carrito, setCarrito} = useContext(CarritoContext)
     const {sesion} = useContext(SesionContext)
     const [total, setTotal] = useState()
     const [descuento] = useState(0)
     const [modal, setModal] = useState(false)
-    const [tuCompra, setTuCompra] = useState(false)
+    const [tuCompra, setTuCompra] = useState({})
     const [procesando, setProcesando] = useState(3)
 
     function eliminar(e){
@@ -76,6 +79,11 @@ export function Carrito(){
     function usuarioPeticion(e){
         e.preventDefault()
         
+        if(sesion == null){
+            navigate("../login")
+            return
+        }
+
         setProcesando(1)
         fetch(`http://localhost:2020/api/clientes/list/correo/${sesion.perfil}`)
         .then(res=>res.json())
@@ -92,7 +100,7 @@ export function Carrito(){
     }
 
     function limpiar(){
-        setTuCompra(false)
+        setTuCompra({})
         setCarrito([])
         setModal(false)
         setProcesando(3)
