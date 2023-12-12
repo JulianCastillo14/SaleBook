@@ -4,6 +4,7 @@
  */
 package com.SaleBook.backend.servicio;
 
+import com.SaleBook.backend.modelo.Cliente;
 import com.SaleBook.backend.modelo.Factura;
 import java.util.List;
 
@@ -14,5 +15,5 @@ import java.util.List;
 public interface IFacturaServicio {
 
     Factura nuevaFactura(Factura factura);
-
+    List<Factura> obtenerFacturasPorIdCliente(Cliente cliente);
 }

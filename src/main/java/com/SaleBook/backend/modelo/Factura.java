@@ -28,7 +28,7 @@ public class Factura {
             
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "ID_FACTURA")
     private Integer idFactura; 
     

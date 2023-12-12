@@ -4,6 +4,7 @@
  */
 package com.SaleBook.backend.servicio;
 
+import com.SaleBook.backend.modelo.Factura;
 import com.SaleBook.backend.modelo.Libro_Por_Factura;
 import com.SaleBook.backend.repositorio.Libro_Por_FacturaRepositorio;
 import jakarta.transaction.Transactional;
@@ -27,6 +28,11 @@ public class Libro_Por_FacturaServicio implements ILibro_Por_FacturaServicio {
     public Libro_Por_Factura grabarLibroFactura(Libro_Por_Factura libroFactura) {
         return libroFacturaRepositorio.save(libroFactura);
     }
+
+    @Override
+    public List<Libro_Por_Factura> obtenerPorFactura(Factura factura) {
+         return libroFacturaRepositorio.findByFactura(factura);
+    }   
 
     
 }

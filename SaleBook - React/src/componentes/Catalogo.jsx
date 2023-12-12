@@ -32,7 +32,7 @@ export function Catalogo(){
             return
         }
 
-   
+       
         const libro = catalogo.filter(libro=>libro.isbn == e.target.id)
 
         const nuevoitem = {

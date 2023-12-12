@@ -10,7 +10,7 @@ import { CatalogoContext } from "../context/catalogo";
 export function Detalles(){
     const [detalles, setDetalles] = useState()
     const {carrito, setCarrito} = useContext(CarritoContext)
-    const {catalogo, setCatalogo} = useContext(CatalogoContext)
+    const {catalogo} = useContext(CatalogoContext)
     const {isbn} = useParams()
 
     useEffect(()=>{

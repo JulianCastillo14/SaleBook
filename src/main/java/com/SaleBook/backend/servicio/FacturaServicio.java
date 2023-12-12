@@ -4,6 +4,7 @@
  */
 package com.SaleBook.backend.servicio;
 
+import com.SaleBook.backend.modelo.Cliente;
 import com.SaleBook.backend.modelo.Factura;
 import com.SaleBook.backend.repositorio.FacturaRepositorio;
 import jakarta.transaction.Transactional;
@@ -25,6 +26,11 @@ public class FacturaServicio implements IFacturaServicio {
     @Override
     public Factura nuevaFactura(Factura factura) {
         return facturaRepo.save(factura);
+    }
+
+    @Override
+    public List<Factura> obtenerFacturasPorIdCliente(Cliente cliente) {
+        return facturaRepo.findByCliente(cliente);
     }
 
 }

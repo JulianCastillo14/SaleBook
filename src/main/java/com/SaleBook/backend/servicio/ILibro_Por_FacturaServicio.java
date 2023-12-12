@@ -4,6 +4,7 @@
  */
 package com.SaleBook.backend.servicio;
 
+import com.SaleBook.backend.modelo.Factura;
 import com.SaleBook.backend.modelo.Libro_Por_Factura;
 import java.util.List;
 
@@ -14,5 +15,5 @@ import java.util.List;
 public interface ILibro_Por_FacturaServicio {
     
     public Libro_Por_Factura grabarLibroFactura(Libro_Por_Factura libroFactura);
-    
+    public List<Libro_Por_Factura> obtenerPorFactura(Factura libroFactura);
 }

@@ -6,11 +6,13 @@ package com.SaleBook.backend.repositorio;
 
 import com.SaleBook.backend.modelo.Libro;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
  * @author juang
  */
 public interface LibroRepositorio extends JpaRepository<Libro, String>{
-    
+   
 }
