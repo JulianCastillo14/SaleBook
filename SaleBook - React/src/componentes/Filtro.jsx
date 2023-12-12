@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react"
 import { CatalogoContext } from "../context/catalogo.jsx"
+import "../styles/Filtro.css"
 
 
 export function Filtro(){
@@ -61,31 +62,32 @@ export function Filtro(){
 
 
     return(
-        <form ref={FormFiltro}  onChange={filtrar}>
-            <div>
-                <h2>Editorial</h2>
-                <input type="checkbox" name="editorial" value="Alma"  />
-                <label htmlFor="editorial">Alma</label>
-                <input type="checkbox" name="editorial" value="Debolsillo" />
-                <label htmlFor="editorial">Debolsillo</label>
-                <input type="checkbox" name="editorial" value="Planeta" />
-                <label htmlFor="editorial">Planeta</label>
+        <form id="filtros-form" ref={FormFiltro}  onChange={filtrar}>
+            <h2 className="blanco border-l">Filtrar por: </h2>
+            <div className="tipo-filtro">
+                <h3 className="blanco mb">Editorial</h3>
+                <input className="espacio" type="checkbox" name="editorial" value="Alma"  />
+                <label className="espacio c-label" htmlFor="editorial">Alma</label><br />
+                <input className="espacio" type="checkbox" name="editorial" value="Debolsillo" />
+                <label className="espacio c-label" htmlFor="editorial">Debolsillo</label><br />
+                <input className="espacio" type="checkbox" name="editorial" value="Planeta" />
+                <label className="espacio c-label" htmlFor="editorial">Planeta</label>
             </div>
-            <div>
-                <h2>categoria</h2>
-                <input type="checkbox" name="categoria" value="ficcion moderna"  />
-                <label htmlFor="categoria">Ficción Moderna</label>
-                <input type="checkbox" name="categoria" value="ficcion clasica" />
-                <label htmlFor="categoria">Ficción Clásica</label>
-                <input type="checkbox" name="categoria" value="terror" />
-                <label htmlFor="categoria">Terror</label>
+            <div className="tipo-filtro">
+                <h3 className="blanco mb">Categoria</h3>
+                <input className="espacio" type="checkbox" name="categoria" value="ficcion moderna"  />
+                <label className="espacio c-label" htmlFor="categoria">Ficción Moderna</label><br />
+                <input className="espacio" type="checkbox" name="categoria" value="ficcion clasica" />
+                <label className="espacio c-label" htmlFor="categoria">Ficción Clásica</label><br />
+                <input className="espacio" type="checkbox" name="categoria" value="terror" />
+                <label className="espacio c-label" htmlFor="categoria">Terror</label>
             </div>
-            <div>
-                <h2>Precio</h2>
-                <label>Ordenar</label>
-                <select htmlFor="orden" name="orden">
-                    <option value="mayor">Mas Costosos</option>
-                    <option value="menor">Mas baratos</option>
+            <div className="tipo-filtro">
+                <h3 className="blanco mb">Precio</h3>
+                <label className="espacio c-label">Ordenar de:</label><br />
+                <select id="sel" htmlFor="orden" name="orden">
+                    <option value="mayor">Mayor a menor</option>
+                    <option value="menor">Menor a mayor</option>
                 </select>
             </div>
 

@@ -6,7 +6,6 @@ import {Carrito} from "./componentes/Carrito"
 import { Header } from "./componentes/Header.jsx"
 import Administracion from "./screens/Administracion.jsx"
 import LoginAdministracion  from "./componentes/LoginAdministracion.jsx";
-import { Filtro } from "./componentes/Filtro.jsx";
 import { Login } from "./componentes/Login.jsx";
 import { Perfil } from "./componentes/Perfil.jsx";
 
@@ -15,7 +14,6 @@ export function App() {
   return (  
     <BrowserRouter>
       <Header></Header>
-      <Filtro></Filtro>
       <Routes>
           <Route path="/" element={<Catalogo/>} /> 
           <Route path="/detalles/:isbn" element={<Detalles/>} />

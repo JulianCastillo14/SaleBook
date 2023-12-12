@@ -10,15 +10,18 @@
     font-family: Roboto;
 }
 
+#container-catalogo{
+    display: flex;
+}
+
 
 .catalogo{
     width: 80vw;
     margin: 1em auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px,2fr));
-    justify-content: center;
-    align-items: center;
     justify-items: center;
+    margin-top: 20px;
 }
 
 .catalogo-libro{
@@ -94,6 +97,8 @@
     margin: 0 auto;
     border-bottom: 2px solid #196d67; 
     box-shadow: 0 2px 2px #196d6770;
+    width: 100px; 
+    height: 130px;
 }
 
 .catalogo-libro-opcion{

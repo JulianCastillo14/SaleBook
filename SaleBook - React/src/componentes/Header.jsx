@@ -9,10 +9,10 @@ export function Header(){
         <>
         <header className="header">
             <Link to="/"><h1 className="header-logo">SaleBook</h1></Link>
-            <form className="header-buscador">
+            {/* <form className="header-buscador">
                 <input className="header-buscador-text" type="text" placeholder="¿Que deseas Buscar?"></input>
                 <input className="header-buscador-boton" type="button" value="Buscar"></input>
-            </form>
+            </form> */}
             <Link to="/carrito" className="header-carrito">
                 <img className="header-carrito-logo" src="../../public/cart-shopping-solid.svg" />
                 <button className="header-carrito-boton">Carrito</button>

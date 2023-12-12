@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { CarritoContext} from "../context/carrito"
 import { CatalogoContext } from "../context/catalogo"
 import {Link} from "react-router-dom"
+import { Filtro } from "./Filtro"
 import "../styles/catalogo.css"
 
 export function Catalogo(){
@@ -43,25 +44,28 @@ export function Catalogo(){
     }
 
 
-    return( 
-        <section className="catalogo">
-            {catalogo && catalogo.map(libro=>(
-                 <div key={libro.isbn} className="catalogo-libro">
-                    <img src={libro.imagenes[0]?.url} className="catalogo-libro-imagen" width="100px" height="130px"/>
-                    <div className="catalogo-libro-info">
-                        <p className="catalogo-info-titulo">{libro.titulo}</p>
-                        <p className="catalogo-info-autor">{libro.autor}</p>
-                        <p className="catalogo-info-editorial">{libro.editorial}</p>
-                        <p className="catalogo-info-categoria">{libro.categoria}</p>
-                        <p className="catalogo-info-disponible">Quedan {libro.stock} unidades</p>
-                        <p className="catalogo-info-precio">Precio: ${libro.valor_unitario}</p>
+    return(
+        <div id="container-catalogo">
+            <Filtro></Filtro>
+            <section className="catalogo">
+                {catalogo && catalogo.map(libro=>(
+                    <div key={libro.isbn} className="catalogo-libro">
+                        <img src={libro.imagenes[0]?.url} className="catalogo-libro-imagen"/>
+                        <div className="catalogo-libro-info">
+                            <p className="catalogo-info-titulo">{libro.titulo}</p>
+                            <p className="catalogo-info-autor">{libro.autor}</p>
+                            <p className="catalogo-info-editorial">{libro.editorial}</p>
+                            <p className="catalogo-info-categoria">{libro.categoria}</p>
+                            <p className="catalogo-info-disponible">Quedan {libro.stock} unidades</p>
+                            <p className="catalogo-info-precio">Precio: ${libro.valor_unitario}</p>
+                        </div>
+                        <div className="catalogo-libro-opcion">
+                            <button className="catalogo-opcion-agregar" id={libro.isbn} onClick={(e)=>agregarCarrito(e)}>Agregar</button>
+                            <Link to={`./detalles/${libro.isbn}`}><button className="catalogo-opcion-ver" id={libro.isbn}>Detalles</button></Link>
+                        </div>
                     </div>
-                    <div className="catalogo-libro-opcion">
-                        <button className="catalogo-opcion-agregar" id={libro.isbn} onClick={(e)=>agregarCarrito(e)}>Agregar</button>
-                        <Link to={`./detalles/${libro.isbn}`}><button className="catalogo-opcion-ver" id={libro.isbn}>Detalles</button></Link>
-                    </div>
-                 </div>
-            ))}
-        </section> 
+                ))}
+            </section> 
+        </div>
     )
 }
