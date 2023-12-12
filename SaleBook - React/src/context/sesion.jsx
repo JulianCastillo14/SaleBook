@@ -4,7 +4,7 @@ export const SesionContext = createContext()
 
 export function SesionProvider({children}){
     const [sesion, setSesion] = useState(JSON.parse(localStorage.getItem("sesion")) || null)
-    console.log(sesion)
+    
     return (<SesionContext.Provider value={{
         sesion,
         setSesion}

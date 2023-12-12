@@ -5,10 +5,12 @@ import "../styles/detalles.css"
 import { useContext } from "react";
 import { CarritoContext } from "../context/carrito";
 import {Link} from "react-router-dom"
+import { CatalogoContext } from "../context/catalogo";
 
 export function Detalles(){
     const [detalles, setDetalles] = useState()
     const {carrito, setCarrito} = useContext(CarritoContext)
+    const {catalogo, setCatalogo} = useContext(CatalogoContext)
     const {isbn} = useParams()
 
     useEffect(()=>{
@@ -18,17 +20,7 @@ export function Detalles(){
     },[detalles])
 
     function comprar(e){
-        let precio = e.target.parentElement.parentElement.children[0].textContent
         let cantidad = e.target.parentElement.parentElement.children[1].value
-        let titulo = e.target.parentElement.parentElement.parentElement.children[0].textContent
-        let stock = e.target.parentElement.parentElement.parentElement.children[2].textContent
-        let autor = e.target.parentElement.parentElement.parentElement.parentElement.children[0].children[1].children[1].textContent
-        let editorial = e.target.parentElement.parentElement.parentElement.parentElement.children[0].children[1].children[3].textContent
-        let categoria = e.target.parentElement.parentElement.parentElement.parentElement.children[0].children[1].children[5].textContent
-        let isbn = e.target.id
-
-        stock = stock.split(" ")[1]
-        precio = precio.split(" ")[1]
 
         if(carrito.some((libro) => libro.isbn == e.target.id)){
             let carritoActualizado = carrito.map(libro=>{
@@ -43,17 +35,14 @@ export function Detalles(){
         }
 
 
+        const libro = catalogo.filter(libro=>libro.isbn == e.target.id)
+
         const nuevoitem = {
-            titulo: titulo,
-            autor: autor,
-            editorial: editorial,
-            categoria: categoria,
-            stock: parseInt(stock),
-            cantidad: parseInt(cantidad),
-            valor_unitario: parseInt(precio),
-            isbn: isbn
+            ...libro[0],
+            cantidad: parseInt(cantidad)
         }
 
+    
         setCarrito([...carrito, nuevoitem])
     }
 

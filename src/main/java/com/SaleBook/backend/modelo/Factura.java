@@ -28,7 +28,7 @@ public class Factura {
             
     
     @Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "ID_FACTURA")
     private Integer idFactura; 
     
@@ -45,8 +45,6 @@ public class Factura {
     @Column (name = "DESCUENTO")
     private float descuento;
     
-    @Column (name = "IVA")
-    private float iva;
     
     @Column (name = "VALOR_TOTAL")
     private float valorTotal;
@@ -58,13 +56,12 @@ public class Factura {
         
     }
     
-    public Factura(Integer idFactura, LocalDate fecha, Cliente numeroDocumento, float subTotal, float descuento, float iva, float valorTotal) {
+    public Factura(Integer idFactura, LocalDate fecha, Cliente numeroDocumento, float subTotal, float descuento, float valorTotal) {
         this.idFactura = idFactura;
         this.fecha = fecha;
         this.numeroDocumento = numeroDocumento;
         this.subTotal = subTotal;
         this.descuento = descuento;
-        this.iva = iva;
         this.valorTotal = valorTotal;
     }
 
@@ -107,15 +104,7 @@ public class Factura {
     public void setDescuento(float descuento) {
         this.descuento = descuento;
     }
-
-    public float getIva() {
-        return iva;
-    }
-
-    public void setIva(float iva) {
-        this.iva = iva;
-    }
-
+    
     public float getValorTotal() {
         return valorTotal;
     }

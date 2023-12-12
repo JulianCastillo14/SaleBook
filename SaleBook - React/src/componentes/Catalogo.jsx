@@ -14,7 +14,7 @@ export function Catalogo(){
         .then(res=>res.json())
         .then(res=>{
             setCatalogo(res.sort((a,b) => b.valor_unitario - a.valor_unitario))
-            })
+        })
     },[])
 
     function agregarCarrito(e){
@@ -31,27 +31,15 @@ export function Catalogo(){
             return
         }
 
-        const values = []
-        Array.from(e.target.parentElement.parentElement.children[1].children).forEach(element=>{
-            values.push(element.textContent)
-        })
-
-        values[4] = values[4].split(" ")[1]
-        values[5] = values[5].split("$")[1]
-        values.push(e.target.id)
+   
+        const libro = catalogo.filter(libro=>libro.isbn == e.target.id)
 
         const nuevoitem = {
-            titulo: values[0],
-            autor: values[1],
-            editorial: values[2],
-            categoria: values[3],
-            stock: values[4],
-            valor_unitario: values[5],
-            isbn: values[6],
+            ...libro[0],
             cantidad: 1
         }
 
-                setCarrito([...carrito, nuevoitem])
+            setCarrito([...carrito, nuevoitem])
     }
 
 
