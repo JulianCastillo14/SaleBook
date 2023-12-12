@@ -49,27 +49,27 @@ export function Detalles(){
     return(
        (detalles && <section className="detalles">
                         <div className="detalles-info">
-                            <img src="https://th.bing.com/th/id/R.ef5155287f4afccff22ba1f65fcdb9ed?rik=fz22Wn0xopZrLw&riu=http%3a%2f%2fcdn5.dibujos.net%2fdibujos%2fpintar%2fun-libro-abierto_163.png&ehk=S1mtnjWcEh7qk1EO2Ho8k%2fGEz2cQnOmyw62ggT5q10Q%3d&risl=&pid=ImgRaw&r=0" className="detalles-info-img"/>
+                            <img src={detalles.imagenes[0]?.url} className="detalles-info-img"/>
                             <div className="detalles-info-texto">
-                                <p>Autor</p>
+                                <p className="cp">Autor</p>
                                 <p>{detalles.autor}</p>
-                                <p>Editorial</p>
+                                <p className="cp">Editorial</p>
                                 <p>{detalles.editorial}</p>
-                                <p>Categoria</p>
+                                <p className="cp">Categoria</p>
                                 <p>{detalles.categoria}</p>
-                                <p>Año</p>
-                                <p>{detalles.fecha_publicacion}</p>
-                                <p>Idioma</p>
+                                <p className="cp">Año</p>
+                                <p>{ new Date(detalles.fecha_publicacion).getFullYear()}</p>
+                                <p className="cp">Idioma</p>
                                 <p>{detalles.idioma}</p>
-                                <p>ISBN</p>
+                                <p className="cp">ISBN</p>
                                 <p>{detalles.isbn}</p>
-                                <p>Edicion</p>
+                                <p className="cp">Edicion</p>
                                 <p>{detalles.edicion}</p>
                             </div>
                         </div>
                         <div className="detalles-valor">
-                            <h1 className="detalles-valor-titulo">{detalles.titulo}</h1>
-                            <p className="detalles-valor-autor">{detalles.autor} - {detalles.editorial}</p>
+                            <h1 className="detalles-valor-titulo">{detalles.titulo}</h1><br />
+                            <p className="detalles-valor-autor">{detalles.autor} - {detalles.editorial}</p><br />
                             <p className="detalles-valor-stock">Quedan {detalles.stock} unidades</p>
                             <div className="detalles-valor-compra">
                                 <p className="detalles-valor-precio">Precio: {detalles.valor_unitario}</p>
