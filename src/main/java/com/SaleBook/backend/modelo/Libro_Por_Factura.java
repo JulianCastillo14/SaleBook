@@ -4,6 +4,7 @@
  */
 package com.SaleBook.backend.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,6 +29,7 @@ public class Libro_Por_Factura {
     
     @ManyToOne
     @JoinColumn(name = "ISBN")
+    @JsonBackReference
     private Libro isbn;
 
     @ManyToOne

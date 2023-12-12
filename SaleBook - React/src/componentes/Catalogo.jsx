@@ -47,7 +47,7 @@ export function Catalogo(){
         <section className="catalogo">
             {catalogo && catalogo.map(libro=>(
                  <div key={libro.isbn} className="catalogo-libro">
-                    <img src="https://th.bing.com/th/id/R.ef5155287f4afccff22ba1f65fcdb9ed?rik=fz22Wn0xopZrLw&riu=http%3a%2f%2fcdn5.dibujos.net%2fdibujos%2fpintar%2fun-libro-abierto_163.png&ehk=S1mtnjWcEh7qk1EO2Ho8k%2fGEz2cQnOmyw62ggT5q10Q%3d&risl=&pid=ImgRaw&r=0" className="catalogo-libro-imagen"/>
+                    <img src={libro.imagenes[0]?.url} className="catalogo-libro-imagen" width="100px" height="130px"/>
                     <div className="catalogo-libro-info">
                         <p className="catalogo-info-titulo">{libro.titulo}</p>
                         <p className="catalogo-info-autor">{libro.autor}</p>

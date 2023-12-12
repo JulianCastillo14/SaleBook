@@ -1,9 +1,7 @@
-                /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.SaleBook.backend.modelo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -21,7 +19,9 @@ public class Libro {
     public static final String TABLE_NAME = "Libro";
     
     @Id
+    @Column(name="ISBN")
     private String isbn;
+    
     private String titulo;
     private String autor;
     private String edicion;
@@ -33,11 +33,17 @@ public class Libro {
     private int stock;
     
     @OneToMany(mappedBy = "isbn")
+    @JsonManagedReference
     private List<Libro_Por_Factura> libroFacturaIdFactura;
+    
+    @OneToMany(mappedBy = "isbn")
+    @JsonManagedReference
+    private List<Imagen> imagenes;
 
     public Libro(){
         
     }
+
     
     public Libro( String isbn, String titulo, String autor, String edicion,String categoria, 
             Date fecha_publicacion, String editorial, String idioma, float valor_unitario, int stock) {
@@ -51,6 +57,21 @@ public class Libro {
         this.idioma = idioma;
         this.valor_unitario = valor_unitario;
         this.stock = stock;
+    }
+    
+    public Libro(String isbn, String titulo, String autor, String edicion, String categoria, Date fecha_publicacion, String editorial, String idioma, float valor_unitario, int stock, List<Libro_Por_Factura> libroFacturaIdFactura, List<Imagen> imagenes) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.edicion = edicion;
+        this.categoria = categoria;
+        this.fecha_publicacion = fecha_publicacion;
+        this.editorial = editorial;
+        this.idioma = idioma;
+        this.valor_unitario = valor_unitario;
+        this.stock = stock;
+        this.libroFacturaIdFactura = libroFacturaIdFactura;
+        this.imagenes = imagenes;
     }
 
     public String getIsbn() {
@@ -131,6 +152,14 @@ public class Libro {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+    
+    public List<Imagen> getImagenes() {
+        return imagenes;
+    }
+
+    public void setImagenes(List<Imagen> imagenes) {
+        this.imagenes = imagenes;
     }
         
 }
