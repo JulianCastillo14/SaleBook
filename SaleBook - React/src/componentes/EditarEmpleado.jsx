@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/EditarEmpleado.css';
 import { Peticion } from '../js/Peticion';
 
@@ -17,11 +17,38 @@ const EditarEmpleado = () => {
         password: ''
     });
 
+    const [empleados, setEmpleados] = useState([]);
+
+    useEffect(() => {
+        const obtenerEmpleados = async () => {
+            const result = await Peticion("http://localhost:2020/api/Empleados/list", "GET");
+            if (result.status) {
+                const data = await result.respuesta.json();
+                setEmpleados(data);
+            } else {
+                console.error(result.respuesta);
+            }
+        };
+
+        obtenerEmpleados();
+    }, []);
+
     const handleChange = (e) => {
         setForm({
             ...form,
             [e.target.name]: e.target.value
         });
+    };
+
+    const handleNumeroDocumentoChange = (e) => {
+        const empleadoSeleccionado = empleados.find(empleado => String(empleado.numeroDocumento) === e.target.value);
+        if (empleadoSeleccionado) {
+            setForm({
+                ...empleadoSeleccionado,
+                tipoDocumento: empleadoSeleccionado.idTipoDocumento.abreviatura,
+                fechaNacimiento: new Date(empleadoSeleccionado.fechaNacimiento).toISOString().split('T')[0]
+            });
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -69,14 +96,20 @@ const EditarEmpleado = () => {
         <section id="container-ediEmpleado">
             <form onSubmit={handleSubmit}>
                 <div className="ajustar-div-ede">
-                    <input name="primerNombre" type="text" placeholder=" Primer nombre" onChange={handleChange} className="input-ede" />
-                    <input name="segundoNombre" type="text" placeholder=" Segundo nombre" onChange={handleChange} className="input-ede" />
-                    <input name="primerApellido" type="text" placeholder=" Primer apellido" onChange={handleChange} className="input-ede" />
-                    <input name="segundoApellido" type="text" placeholder=" Segundo apellido" onChange={handleChange} className="input-ede" />
-                </div>
+                    <select name="numeroDocumento" value={form.numeroDocumento} onChange={handleNumeroDocumentoChange} className="select-ede">
+                        <option value="" disabled>Selecciona un número de documento</option>
+                        {empleados && empleados.map(empleado => (
+                            <option value={String(empleado.numeroDocumento)}>{empleado.numeroDocumento}</option>
+                        ))}
+                    </select>
+                    <input name="primerNombre" type="text" placeholder=" Primer nombre" value={form.primerNombre} onChange={handleChange} className="input-ede" />
+                    <input name="segundoNombre" type="text" placeholder=" Segundo nombre" value={form.segundoNombre} onChange={handleChange} className="input-ede" />
+                    <input name="primerApellido" type="text" placeholder=" Primer apellido" value={form.primerApellido} onChange={handleChange} className="input-ede" />
+
+                    </div>
                 <div className="ajustar-div-ede">
-                    <input name="numeroDocumento" type="text" placeholder=" Documento" onChange={handleChange} className="input-ede" />
-                    <select name="tipoDocumento" onChange={handleChange} className="select-ede">
+                    <input name="segundoApellido" type="text" placeholder=" Segundo apellido" value={form.segundoApellido} onChange={handleChange} className="input-ede" />
+                    <select name="tipoDocumento" value={form.tipoDocumento} onChange={handleChange} className="select-ede">
                         <option value="" disabled selected>Selecciona un tipo de documento</option>
                         <option value="TI">Tarjeta de identidad</option>
                         <option value="CC">Cédula de ciudadanía </option>
@@ -85,20 +118,20 @@ const EditarEmpleado = () => {
                     </select>
                     <div id="Fecha-Nacimiento">
                         Fecha de Nacimiento:
-                        <input name="fechaNacimiento" type="date" onChange={handleChange} className="input-ede" />
+                        <input name="fechaNacimiento" value={form.fechaNacimiento} type="date" onChange={handleChange} className="input-ede" />
                     </div>
                 </div>
                 <div className="ajustar-div-ede">
-                    <select name="genero" onChange={handleChange} className="select-ede">
+                    <select name="genero" value={form.genero} onChange={handleChange} className="select-ede">
                         <option value="" disabled selected>Selecciona una identidad de género</option>
                         <option value="Masculino">Masculino</option>
                         <option value="Femenino">Femenino</option>
                     </select>
-                    <input name="correo" type="email" placeholder=" Correo electrónico" onChange={handleChange} className="input-ede" id="Correo" />
+                    <input name="correo" value={form.correo} type="email" placeholder=" Correo electrónico" onChange={handleChange} className="input-ede" id="Correo" />
                 </div>
                 <div className="ajustar-div-ede">
-                    <input name="usuario" type="text" placeholder=" Usuario" onChange={handleChange} className="input-ede" />
-                    <input name="password" type="text" placeholder=" Contraseña" onChange={handleChange} className="input-ede" />
+                    <input name="usuario" value={form.usuario} type="text" placeholder=" Usuario" onChange={handleChange} className="input-ede" />
+                    <input name="password" value={form.password} type="text" placeholder=" Contraseña" onChange={handleChange} className="input-ede" />
                     <button type="submit" className="btn-editar">Editar Empleado</button>
                 </div>
             </form>
