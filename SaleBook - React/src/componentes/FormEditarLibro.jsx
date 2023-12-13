@@ -11,7 +11,7 @@ export function FormEditarLibro(){
     const [error, setEror] = useState()
 
     useEffect(()=>{
-            fetch("http://localhost:2020/api/libros/listIsbn")
+            fetch("https://salebook-backend-production.up.railway.app/api/libros/listIsbn")
             .then(res=>res.json())
             .then(res=>{
                 setListaIsbns(res)
@@ -25,7 +25,7 @@ export function FormEditarLibro(){
 
     useEffect(()=>{
         if(primerRender){
-            fetch(`http://localhost:2020/api/libros/list/${isbn}`)
+            fetch(`https://salebook-backend-production.up.railway.app/api/libros/list/${isbn}`)
             .then(res=>res.json())
             .then(res=>setLibro(res))
         }else{
@@ -40,7 +40,7 @@ export function FormEditarLibro(){
         const data = Object.fromEntries(formData);
    
         console.log(data)
-        fetch("http://localhost:2020/api/libros/",{
+        fetch("https://salebook-backend-production.up.railway.app/api/libros/",{
             method: "PUT",
             body: JSON.stringify(data),
             headers: {

@@ -8,7 +8,7 @@ const ConsultarEmpleado = () => {
   const [documentoEliminar, setDocumentoEliminar] = useState('');
 
   const obtenerEmpleados = async () => {
-    const { status, respuesta } = await Peticion("http://localhost:2020/api/Empleados/list","GET");
+    const { status, respuesta } = await Peticion("https://salebook-backend-production.up.railway.app/api/Empleados/list","GET");
     if (status) {
       const Empleados = await respuesta.json();
       setEmpleados(Empleados);
@@ -16,7 +16,7 @@ const ConsultarEmpleado = () => {
   };
 
   const obtenerEmpleadosDocumento = async (numeroDocumento) => {
-    const { status, respuesta } = await Peticion(`http://localhost:2020/api/Empleados/list/${numeroDocumento}`,"GET");
+    const { status, respuesta } = await Peticion(`https://salebook-backend-production.up.railway.app/api/Empleados/list/${numeroDocumento}`,"GET");
     if (status) {
       const Empleado = await respuesta.json();
       setEmpleados([Empleado]);
@@ -24,7 +24,7 @@ const ConsultarEmpleado = () => {
   };
 
   const eliminarEmpleadoDocumento = async (numeroDocumento) => {
-    const { status, respuesta } = await Peticion(`http://localhost:2020/api/Empleados/${numeroDocumento}`,"DELETE");
+    const { status, respuesta } = await Peticion(`https://salebook-backend-production.up.railway.app/api/Empleados/${numeroDocumento}`,"DELETE");
     if (status) {
       alert("Empleado eliminado correctamente");
       obtenerEmpleados();

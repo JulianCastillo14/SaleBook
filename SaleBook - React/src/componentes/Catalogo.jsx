@@ -11,7 +11,7 @@ export function Catalogo(){
     const {catalogo, setCatalogo} = useContext(CatalogoContext)
 
     useEffect(()=>{
-        fetch("http://localhost:2020/api/libros/list")
+        fetch("https://salebook-backend-production.up.railway.app/api/libros/list")
         .then(res=>res.json())
         .then(res=>{
             setCatalogo(res.sort((a,b) => b.valor_unitario - a.valor_unitario))

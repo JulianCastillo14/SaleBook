@@ -12,14 +12,14 @@ export function TablaListaLibros(){
 
     useEffect(()=>{
         if(todosLibros){
-            fetch("http://localhost:2020/api/libros/list")
+            fetch("https://salebook-backend-production.up.railway.app/api/libros/list")
             .then(res=>res.json())
             .then(res=>{
               setLibros(res)
               setLibro(null)
             }) 
         }else if(!todosLibros){
-            fetch(`http://localhost:2020/api/libros/list/${input_isbn.current.value}`)
+            fetch(`https://salebook-backend-production.up.railway.app/api/libros/list/${input_isbn.current.value}`)
             .then(res=>res.json())
             .then(res=>{
               setLibro(res)
@@ -30,7 +30,7 @@ export function TablaListaLibros(){
 
     useEffect(()=>{
         if(primerRender){
-          fetch(`http://localhost:2020/api/libros/${input_delete.current.value}`,{
+          fetch(`https://salebook-backend-production.up.railway.app/api/libros/${input_delete.current.value}`,{
             method: "DELETE"
           })
           .then(res=>console.log(res))

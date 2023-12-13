@@ -12,7 +12,7 @@ export function FormCrearLibro(){
         const data = Object.fromEntries(formData);
    
         console.log(data)
-        fetch("http://localhost:2020/api/libros/",{
+        fetch("https://salebook-backend-production.up.railway.app/api/libros/",{
             method: "POST",
             body: JSON.stringify(data),
             headers: {

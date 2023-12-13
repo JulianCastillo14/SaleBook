@@ -14,7 +14,7 @@ export function Detalles(){
     const {isbn} = useParams()
 
     useEffect(()=>{
-        fetch(`http://localhost:2020/api/libros/list/${isbn}`)
+        fetch(`https://salebook-backend-production.up.railway.app/api/libros/list/${isbn}`)
         .then(res=>res.json())
         .then(res=>setDetalles(res))
     },[detalles])

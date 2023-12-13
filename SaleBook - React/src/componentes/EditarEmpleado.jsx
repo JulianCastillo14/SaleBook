@@ -21,7 +21,7 @@ const EditarEmpleado = () => {
 
     useEffect(() => {
         const obtenerEmpleados = async () => {
-            const result = await Peticion("http://localhost:2020/api/Empleados/list", "GET");
+            const result = await Peticion("https://salebook-backend-production.up.railway.app/api/Empleados/list", "GET");
             if (result.status) {
                 const data = await result.respuesta.json();
                 setEmpleados(data);
@@ -83,7 +83,7 @@ const EditarEmpleado = () => {
             fechaNacimiento: new Date(form.fechaNacimiento).toISOString().split('T')[0]
         };
 
-        const { status } = await Peticion("http://localhost:2020/api/Empleados/", "PUT", data);
+        const { status } = await Peticion("https://salebook-backend-production.up.railway.app/api/Empleados/", "PUT", data);
 
         if (status) {
             alert("Empleado editado correctamente");

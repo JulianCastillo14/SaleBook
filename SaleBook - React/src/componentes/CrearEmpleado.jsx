@@ -55,7 +55,7 @@ const CrearEmpleado = () => {
       "password": password
     };
 
-    const { status, respuesta: Empleados } = await Peticion("http://localhost:2020/api/Empleados/", "POST", data);
+    const { status, respuesta: Empleados } = await Peticion("https://salebook-backend-production.up.railway.app/api/Empleados/", "POST", data);
 
     if (status) {
       alert("Empleado creado correctamente");

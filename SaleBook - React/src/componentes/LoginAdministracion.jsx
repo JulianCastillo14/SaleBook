@@ -14,7 +14,7 @@ export function LoginAdministracion(){
         const data = Object.fromEntries(formData);
    
         console.log(data)
-        fetch("http://localhost:2020/api/Empleados/login",{
+        fetch("https://salebook-backend-production.up.railway.app/api/Empleados/login",{
             method: "POST",
             body: JSON.stringify(data),
             headers: {

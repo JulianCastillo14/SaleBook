@@ -112,6 +112,7 @@
 .Total{
     display: flex;
 }
+
 #container-procesando{
     display: flex;
     flex-direction: column;

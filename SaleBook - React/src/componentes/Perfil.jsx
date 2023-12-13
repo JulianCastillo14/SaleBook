@@ -11,7 +11,7 @@ export function Perfil(){
     const [facturas, setFacturas] = useState()
 
     useEffect(()=>{
-        fetch(`http://localhost:2020/api/clientes/list/correo/${sesion.perfil}`)
+        fetch(`https://salebook-backend-production.up.railway.app/api/clientes/list/correo/${sesion.perfil}`)
         .then(res=>res.json())
         .then(res=>setPerfil(res))
     },[])
@@ -19,7 +19,7 @@ export function Perfil(){
 
     useEffect(()=>{
         if(perfil != null){
-            fetch("http://localhost:2020/api/facturas/list",{
+            fetch("https://salebook-backend-production.up.railway.app/api/facturas/list",{
                 method: "POST",
                 body: JSON.stringify(perfil),
                 headers: {

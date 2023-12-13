@@ -22,7 +22,6 @@ export function App() {
           <Route path="/loginadministracion" element={<LoginAdministracion/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/perfil" element={<Perfil/>}/>
-
       </Routes>
     </BrowserRouter> 
   )

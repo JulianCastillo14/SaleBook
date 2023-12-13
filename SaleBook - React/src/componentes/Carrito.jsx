@@ -61,7 +61,7 @@ export function Carrito(){
 
         console.log(data)
         console.log(carrito)
-        fetch("http://localhost:2020/api/facturas/",{
+        fetch("https://salebook-backend-production.up.railway.app/api/facturas/",{
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -85,7 +85,7 @@ export function Carrito(){
         }
 
         setProcesando(1)
-        fetch(`http://localhost:2020/api/clientes/list/correo/${sesion.perfil}`)
+        fetch(`https://salebook-backend-production.up.railway.app/api/clientes/list/correo/${sesion.perfil}`)
         .then(res=>res.json())
         .then(res=>{
             comprar({
