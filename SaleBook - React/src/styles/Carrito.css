@@ -115,10 +115,16 @@
 
 #container-procesando{
     display: flex;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 70%;
     flex-direction: column;
     align-items: center;
-    border-top: solid #167571 2px;
-    margin-top: 20px;
+    background-color: #fbfbf6;
+    border: solid #167571 2px;
+    font-size: 20px;
+    padding: 10px;
 }
 .container-ce > ul > li {
     list-style: none;
@@ -131,4 +137,10 @@
     height: 30px;
     width: 80px;
     border-radius: 10px;
+}
+
+.procesando_img{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
 }

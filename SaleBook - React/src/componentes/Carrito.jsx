@@ -79,6 +79,8 @@ export function Carrito(){
     function usuarioPeticion(e){
         e.preventDefault()
         
+        setModal(false)
+
         if(sesion == null){
             navigate("../login")
             return
@@ -176,15 +178,17 @@ export function Carrito(){
                     </div>
                 </div>
                 <div>
-                <div id="container-procesando">
+                
                     {
                         procesando == 1 ? 
+                        <div id="container-procesando">
                         <div>
-                            <img src="../../public/Spinner-1s-200px.svg"/>
+                            <img src="../../public/Spinner-1s-200px.svg" className="procesando_img"/>
                             <p>Estamos procesando tu compra...</p>
                         </div>
-
+                        </div>
                         : procesando == 0 ? 
+                        <div id="container-procesando">
                         <div className="container-ce">
                             <h2  className="mt20">¡Felicitaciones! Tu compra ha sido exitosa.</h2>
                             <ul>
@@ -252,11 +256,10 @@ export function Carrito(){
                             </ul>
                             <button className="cerrar-compra-btn mw20 mt10" onClick={limpiar}>Cerrar</button>
                         </div>
+                        </div>
                         :
                         <></>
-                    }
-                    </div>
-                    
+                    }                   
                 </div>
             </div>
         </form>
