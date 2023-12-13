@@ -8,7 +8,7 @@
     background-image: url(../assets/Fondo-Salebook.jpg);
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
-    height: 92.3vh;
+    height: 100vh;
     width: 100vw;
     z-index: -100000;
 }
@@ -18,7 +18,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin-top: 40px;
 }
 .content > header{
     display: flex;

@@ -70,3 +70,7 @@
     text-transform: uppercase;
     cursor: pointer;
 }
+
+.margin-r10{
+    margin-right: 10px;
+}
