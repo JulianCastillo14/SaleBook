@@ -1,6 +1,9 @@
 .item-info-cierre{
     cursor: pointer;
-    width: 16px;
+    width: 1.5em;
+    height: 1.5em;
+    margin-top: 45px;
+    margin-left: 30px;
 }
 
 #Formulario-Carrito{
@@ -12,6 +15,119 @@
     padding: 10px 20px;
     margin: 20px 20px;
     border: solid #FFB534 2px;
-    border-radius: 10px;
+    border-radius: 10px; 
+}
+
+.item-info{
+    display: flex;
+    width: 60vw;
+    padding: 20px;
+    border-bottom: solid #B4B4B3 2px;
     
+}
+
+.item-container{
+    display: flex;
+}
+
+#img-item{
+    width: 100px;
+    height: 140px;
+}
+#Containter-productos{
+    display: flex;
+    padding-top: 20px;
+}
+
+.mt{
+    margin-top: 8px;
+    margin-left: 40px;
+}
+
+.ml{
+    margin-left: 100px;
+}
+.pt{
+    padding-top: 20px;
+}
+.mt20{
+    margin-top: 20px;
+}
+.sel{
+    width: 60px;
+    border: solid #B4B4B3 2px;
+    border-radius: 8px;
+    height: 28px;
+}
+.container-ge{
+    display: flex;
+}
+
+#container-compra{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    height: 20vh;
+    width: 15vw;
+    border: solid #1fa29c 2px;
+    border-radius: 8px;
+    background-color: #fbfbf6;
+}
+#comprar-btn{
+    background-color: #1fa29c;
+    color: white;
+    padding: 2px;
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+#Total{
+    display: inline;
+}
+.mr5p{
+    margin-right: 5px;
+    color: #167571;
+}
+
+.modal_compra{
+    margin-left: 20px;
+}
+
+.btn-CoC{
+    background-color: #1fa29c;
+    color: white;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
+}
+
+#container-global-items{
+    display: flex;
+}
+.Total{
+    display: flex;
+}
+#container-procesando{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: solid #167571 2px;
+    margin-top: 20px;
+}
+.container-ce > ul > li {
+    list-style: none;
+}
+.cerrar-compra-btn{
+    background-color: #1fa29c;
+    color: white;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
 }

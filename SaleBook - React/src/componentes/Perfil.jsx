@@ -123,7 +123,7 @@ export function Perfil(){
                                             <div className="flex-class-column mw20 mt10">
                                                 <h3>Libros Comprados:</h3>
                                                 {factura.libros && factura.libros.map((libro, index) => (
-                                                    <div className="container-dat-fac">
+                                                    <div className="container-dat-fac mgb20">
                                                         <div id="img-libro">
                                                             <img src={libro.imagenes[0]?.url}  />
                                                         </div>
