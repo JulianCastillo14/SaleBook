@@ -2,3 +2,16 @@
     cursor: pointer;
     width: 16px;
 }
+
+#Formulario-Carrito{
+    display: flex;
+    justify-content: center;
+}
+
+#Carrito-Vacio{
+    padding: 10px 20px;
+    margin: 20px 20px;
+    border: solid #FFB534 2px;
+    border-radius: 10px;
+    
+}

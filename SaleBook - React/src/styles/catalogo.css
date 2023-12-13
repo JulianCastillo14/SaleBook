@@ -12,16 +12,18 @@
 
 #container-catalogo{
     display: flex;
+    width: 100%;
 }
 
 
-.catalogo{
-    width: 80vw;
-    margin: 1em auto;
+.catalogo {
+    width: 78vw;
+    margin: 2em auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px,2fr));
+    grid-template-columns: repeat(3, minmax(180px,2fr));
+    row-gap: 12px;
     justify-items: center;
-    margin-top: 20px;
+    margin-top: 20px;
 }
 
 .catalogo-libro{
@@ -36,6 +38,7 @@
     overflow: hidden;
     background-color: white;
     transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s;
+    margin-top: 10px;
 }
 
 

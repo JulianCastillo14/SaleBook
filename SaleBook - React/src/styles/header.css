@@ -10,7 +10,6 @@
     font-family: Roboto;
     text-decoration: none;
 }
-
 .header {
     display: flex;
     width: 100vw;
@@ -20,40 +19,11 @@
     align-items: center;
     box-shadow: 0 -3px 10px #033b38 inset, 0 3px 10px #033b38 inset;
 }
-
-.header-buscador{
-    height: 5vh;
-    width: 50vw;
-}
-
-.header-buscador-text{
-    height: 100%;
-    width: 70%;
-    padding: 1em;
-    font-weight: 600;
-    font-size: 1em;
-}
-
-.header-buscador-boton{
-    height: 100%;
-    width: 8vw;
-    outline: none;
-    margin: 0 0.5em;
-    padding: 0.2em 1.5em;
-    background-color: rgb(231, 215, 64);
-    font-size: 1em;
-    font-weight: 600;
-    cursor: pointer;
-    color: #196d67;
-}
-
-
-
 .header-logo{
     color: aliceblue;
     font-family: Roboto;
     font-size: 1.5em;
-     margin-right: 56vw;
+    margin-right: 52vw;
 }
 
 .header-login{

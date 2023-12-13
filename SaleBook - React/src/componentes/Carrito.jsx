@@ -107,7 +107,7 @@ export function Carrito(){
     }
 
     return(
-        <form>
+        <form id="Formulario-Carrito">
             {carrito && carrito.map((item)=> (
                     <div className="item-info" key={item.isbn}>
                        <img src={item.imagenes[0]?.url}/>
@@ -135,7 +135,7 @@ export function Carrito(){
                     <p>Total: ${total && total}</p>
                     <input type="button" value="Comprar" onClick={()=>setModal(true)} />
                 </>:
-                <p>No has Añadido nada al carrito</p>
+                <p id="Carrito-Vacio">Tu carrito esta vacio.</p>
             }
             
             {modal &&

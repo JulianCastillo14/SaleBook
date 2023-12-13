@@ -1,0 +1,169 @@
+#Container-perfil{
+    display: flex;
+    margin: 40px 40px;
+}
+#Tipo-Datos{
+    margin-top: 20px;
+    margin-right: 40px;
+    list-style: none;
+    
+}
+#Tipo-Datos > li{
+    display: flex;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1fa29c;
+    color: white;
+    height: 30px;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+#Cerrar-Sesion{
+    background-color: white;
+    border: none;
+    margin-top: 56vh;
+    border-radius: 10px;
+    height: 40px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#i-salir{
+    color: red;
+    height: 1.7rem;
+    width: 2rem;
+    margin-right: 5px;
+}
+
+#Datos-sel{
+    margin-top: 42px;
+    padding: 20px;
+    border: solid #B6BBC4 2px;
+    height: 65vh;
+    width: 50vw;
+    border-radius: 5px;
+}
+
+#Datos-sel > section > ul {
+    list-style: none;
+}
+
+#TuPerfil{
+    display: flex;
+    align-items: center;
+}
+
+#i-cuenta{
+    color: #1fa29c;
+    height: 1.7rem;
+    width: 2rem;
+    margin-right: 5px;
+}
+.c-verde{
+    color: #1fa29c;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.flex-class{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.union{
+    display: flex;
+    width: 100%;
+}
+
+/* Margenes */
+.mr10{
+    margin-right: 10px;
+}
+
+.mw20{
+    margin: auto 20px;
+}
+
+.flex-class-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.mw80{
+    margin: auto 70px;
+
+}
+.mt10{
+    margin-top: 20px;
+}
+
+.container-factura{
+    margin-top: 20px;
+}
+
+#fac > li {
+    list-style: none;
+}
+.container-dat-fac{
+    display: flex;
+}
+#img-libro{
+    height: 122px;
+    border: solid #1fa29c 1px;
+    border-radius: 2px;
+}
+#img-libro > img{
+    height: 121px;
+    width: 80px;
+}
+
+.c2-verde{
+    color: #1fa29c;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.alineacion{
+    padding: 8px;
+    justify-content: center;
+    border: solid #1fa29c 1px;
+    border-radius: 2px;
+}
+
+.mr5{
+    margin-right: 5px;
+}
+
+.vt{
+    color: white;
+    background-color: #1fa29c;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.valores{
+    border: solid #1fa29c 1px;
+    border-radius: 2px;
+}
+.can-uni{
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    justify-content: center ;
+}
+
+.border-linea{
+    border-bottom: dashed #1fa29c 2px;
+    border-top: dashed #1fa29c 2px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+
+
